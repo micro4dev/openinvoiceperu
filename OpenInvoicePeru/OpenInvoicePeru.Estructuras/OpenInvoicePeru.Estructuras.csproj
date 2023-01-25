@@ -58,6 +58,7 @@
     <Compile Include="CommonAggregateComponents\SellersItemIdentification.cs" />
     <Compile Include="CommonAggregateComponents\StandardItemIdentification.cs" />
     <Compile Include="CommonAggregateComponents\UsabilityPeriod.cs" />
+    <Compile Include="CommonBasicComponents\DriverPerson.cs" />
     <Compile Include="EstandarUbl\InfoCredits.cs" />
     <Compile Include="EstandarUbl\Perception.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

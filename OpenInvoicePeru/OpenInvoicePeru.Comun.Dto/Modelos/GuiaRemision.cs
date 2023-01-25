@@ -14,6 +14,9 @@ namespace OpenInvoicePeru.Comun.Dto.Modelos
         public string FechaEmision { get; set; }
 
         [JsonProperty(Required = Required.Always)]
+        public string HoraEmision { get; set; }
+
+        [JsonProperty(Required = Required.Always)]
         public string TipoDocumento { get; set; }
 
         [JsonProperty(Required = Required.AllowNull)]
@@ -57,10 +60,13 @@ namespace OpenInvoicePeru.Comun.Dto.Modelos
         public string RucTransportista { get; set; }
 
         public string RazonSocialTransportista { get; set; }
+        public string NroMtc { get; set; }
 
         public string NroPlacaVehiculo { get; set; }
 
         public string NroDocumentoConductor { get; set; }
+        public string NombreConductor { get; set; }
+        public string NroLicenciaConductor { get; set; }
 
         [JsonProperty(Required = Required.Always)]
         public Direccion DireccionPartida { get; set; }

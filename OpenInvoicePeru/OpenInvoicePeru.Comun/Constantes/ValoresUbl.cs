@@ -36,6 +36,13 @@
         public const string AdditionalPropertyListUri  = "urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo55";
         public const string AllowanceChargeReasonCodeListUri = "urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo53";
         public const string PaymentMeansSchemeUri = "urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo54";
+        public const string HandlingCodesSchemeUri = "urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo20";
+        public const string ReasonForTransferUri = "Motivo de traslado";
+        public const string TransportModeCode = "Modalidad de traslado";
+        public const string TransportModeCodeListUri = "urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo18";
+
+
+
     }
 
 }

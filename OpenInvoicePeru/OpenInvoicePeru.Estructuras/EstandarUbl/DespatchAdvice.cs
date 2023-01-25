@@ -8,6 +8,7 @@ using OpenInvoicePeru.Comun;
 using OpenInvoicePeru.Comun.Constantes;
 using OpenInvoicePeru.Estructuras.CommonAggregateComponents;
 using OpenInvoicePeru.Estructuras.CommonExtensionComponents;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace OpenInvoicePeru.Estructuras.EstandarUbl
 {
@@ -23,6 +24,7 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
         public string Id { get; set; }
 
         public DateTime IssueDate { get; set; }
+        public DateTime IssueTime { get; set; }
 
         public string DespatchAdviceTypeCode { get; set; }
 
@@ -58,7 +60,7 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
             Shipment = new Shipment();
             DespatchLines = new List<DespatchLine>();
             UblVersionId = "2.1";
-            CustomizationId = "1.0";
+            CustomizationId = "2.0";
             Formato = new System.Globalization.CultureInfo(Formatos.Cultura);
         }
 
@@ -75,15 +77,15 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
         public void WriteXml(XmlWriter writer)
         {
             writer.WriteAttributeString("xmlns", EspacioNombres.xmlnsDespatchAdvice);
+            writer.WriteAttributeString("xmlns:ds", EspacioNombres.ds);
             writer.WriteAttributeString("xmlns:cac", EspacioNombres.cac);
             writer.WriteAttributeString("xmlns:cbc", EspacioNombres.cbc);
-            writer.WriteAttributeString("xmlns:ccts", EspacioNombres.ccts);
-            writer.WriteAttributeString("xmlns:ds", EspacioNombres.ds);
+            //writer.WriteAttributeString("xmlns:ccts", EspacioNombres.ccts);
             writer.WriteAttributeString("xmlns:ext", EspacioNombres.ext);
-            writer.WriteAttributeString("xmlns:qdt", EspacioNombres.qdt);
-            writer.WriteAttributeString("xmlns:sac", EspacioNombres.sac);
-            writer.WriteAttributeString("xmlns:udt", EspacioNombres.udt);
-            writer.WriteAttributeString("xmlns:xsi", EspacioNombres.xsi);
+            //writer.WriteAttributeString("xmlns:qdt", EspacioNombres.qdt);
+            //writer.WriteAttributeString("xmlns:sac", EspacioNombres.sac);
+            //writer.WriteAttributeString("xmlns:udt", EspacioNombres.udt);
+            //writer.WriteAttributeString("xmlns:xsi", EspacioNombres.xsi);
 
             #region UBLExtensions
 
@@ -115,7 +117,21 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
             writer.WriteElementString("cbc:CustomizationID", CustomizationId);
             writer.WriteElementString("cbc:ID", Id);
             writer.WriteElementString("cbc:IssueDate", IssueDate.ToString(Formatos.FormatoFecha));
-            writer.WriteElementString("cbc:DespatchAdviceTypeCode", DespatchAdviceTypeCode);
+            writer.WriteElementString("cbc:IssueTime", IssueTime.ToString(Formatos.FormatoHora));
+
+            //writer.WriteElementString("cbc:DespatchAdviceTypeCode", DespatchAdviceTypeCode);
+
+            writer.WriteStartElement("cbc:DespatchAdviceTypeCode");
+            {
+
+                writer.WriteAttributeString("listAgencyName", ValoresUbl.SchemeAgencyName);
+                writer.WriteAttributeString("listName", ValoresUbl.InvoiceTypeCodeName);
+                writer.WriteAttributeString("listURI", ValoresUbl.InvoiceTypeCodeSchemeUri);
+                writer.WriteValue(DespatchAdviceTypeCode);
+
+            }
+            writer.WriteEndElement();
+
             if (!string.IsNullOrEmpty(Note))
                 writer.WriteElementString("cbc:Note", Note);
 
@@ -205,15 +221,29 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
 
             writer.WriteStartElement("cac:DespatchSupplierParty");
             {
-                writer.WriteStartElement("cbc:CustomerAssignedAccountID");
-                {
-                    writer.WriteAttributeString("schemeID", DespatchSupplierParty.AdditionalAccountId);
-                    writer.WriteValue(DespatchSupplierParty.CustomerAssignedAccountId);
-                }
-                writer.WriteEndElement();
+                //writer.WriteStartElement("cbc:CustomerAssignedAccountID");
+                //{
+                //    writer.WriteAttributeString("schemeID", DespatchSupplierParty.AdditionalAccountId);
+                //    writer.WriteValue(DespatchSupplierParty.CustomerAssignedAccountId);
+                //}
+                //writer.WriteEndElement();
 
                 writer.WriteStartElement("cac:Party");
                 {
+                    writer.WriteStartElement("cac:PartyIdentification");
+                    {
+                        writer.WriteStartElement("cbc:ID");
+                        {
+                            writer.WriteAttributeString("schemeID", DespatchSupplierParty.AdditionalAccountId);
+                            writer.WriteAttributeString("schemeName", ValoresUbl.CompanySchemeName);
+                            writer.WriteAttributeString("schemeAgencyName", ValoresUbl.SchemeAgencyName);
+                            writer.WriteAttributeString("schemeURI", ValoresUbl.CompanySchemeUri);
+                            writer.WriteValue(DespatchSupplierParty.CustomerAssignedAccountId);
+                        }
+                        writer.WriteEndElement();
+                    }
+                    writer.WriteEndElement();
+
                     writer.WriteStartElement("cac:PartyLegalEntity");
                     {
                         writer.WriteElementString("cbc:RegistrationName", DespatchSupplierParty.Party.PartyLegalEntity.RegistrationName);
@@ -230,15 +260,29 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
 
             writer.WriteStartElement("cac:DeliveryCustomerParty");
             {
-                writer.WriteStartElement("cbc:CustomerAssignedAccountID");
-                {
-                    writer.WriteAttributeString("schemeID", DeliveryCustomerParty.AdditionalAccountId);
-                    writer.WriteValue(DeliveryCustomerParty.CustomerAssignedAccountId);
-                }
-                writer.WriteEndElement();
+                //writer.WriteStartElement("cbc:CustomerAssignedAccountID");
+                //{
+                //    writer.WriteAttributeString("schemeID", DeliveryCustomerParty.AdditionalAccountId);
+                //    writer.WriteValue(DeliveryCustomerParty.CustomerAssignedAccountId);
+                //}
+                //writer.WriteEndElement();
 
                 writer.WriteStartElement("cac:Party");
                 {
+                    writer.WriteStartElement("cac:PartyIdentification");
+                    {
+                        writer.WriteStartElement("cbc:ID");
+                        {
+                            writer.WriteAttributeString("schemeID", DeliveryCustomerParty.AdditionalAccountId);
+                            writer.WriteAttributeString("schemeName", ValoresUbl.CompanySchemeName);
+                            writer.WriteAttributeString("schemeAgencyName", ValoresUbl.SchemeAgencyName);
+                            writer.WriteAttributeString("schemeURI", ValoresUbl.CompanySchemeUri);
+                            writer.WriteValue(DeliveryCustomerParty.CustomerAssignedAccountId);
+                        }
+                        writer.WriteEndElement();
+                    }
+                    writer.WriteEndElement();
+
                     writer.WriteStartElement("cac:PartyLegalEntity");
                     {
                         writer.WriteElementString("cbc:RegistrationName", DeliveryCustomerParty.Party.PartyLegalEntity.RegistrationName);
@@ -281,11 +325,36 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
 
             #region Shipment
 
+            var transportMode = Shipment.ShipmentStages.FirstOrDefault();
+
+
             writer.WriteStartElement("cac:Shipment");
             {
                 writer.WriteElementString("cbc:ID", Shipment.Id);
-                writer.WriteElementString("cbc:HandlingCode", Shipment.HandlingCode);
-                writer.WriteElementString("cbc:Information", Shipment.Information);
+
+
+                //writer.WriteElementString("cbc:HandlingCode", Shipment.HandlingCode);
+                //writer.WriteElementString("cbc:Information", Shipment.Information);
+                writer.WriteStartElement("cbc:HandlingCode");
+                {
+
+                    writer.WriteAttributeString("listAgencyName", ValoresUbl.SchemeAgencyName);
+                    writer.WriteAttributeString("listName", ValoresUbl.ReasonForTransferUri);
+                    writer.WriteAttributeString("listURI", ValoresUbl.HandlingCodesSchemeUri);
+                    writer.WriteValue(Shipment.HandlingCode);
+
+                }
+                writer.WriteEndElement();
+
+                if (Shipment.HandlingCode.Trim().Equals("13"))
+                {
+                    writer.WriteStartElement("cbc:HandlingInstructions");
+                    {
+                        writer.WriteValue(Shipment.Information);
+                    }
+                    writer.WriteEndElement();
+                }
+
                 writer.WriteStartElement("cbc:GrossWeightMeasure");
                 {
                     writer.WriteAttributeString("unitCode", Shipment.GrossWeightMeasure.UnitCode);
@@ -302,7 +371,18 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
                 {
                     writer.WriteStartElement("cac:ShipmentStage");
                     {
-                        writer.WriteElementString("cbc:TransportModeCode", shipmentStage.TransportModeCode);
+                        //writer.WriteElementString("cbc:TransportModeCode", shipmentStage.TransportModeCode);
+
+                        writer.WriteStartElement("cbc:TransportModeCode");
+                        {
+
+                            writer.WriteAttributeString("listName", ValoresUbl.TransportModeCode);
+                            writer.WriteAttributeString("listAgencyName", ValoresUbl.SchemeAgencyName);
+                            writer.WriteAttributeString("listURI", ValoresUbl.TransportModeCodeListUri);
+                            writer.WriteValue(shipmentStage.TransportModeCode);
+
+                        }
+                        writer.WriteEndElement();
 
                         writer.WriteStartElement("cac:TransitPeriod");
                         {
@@ -310,47 +390,99 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
                         }
                         writer.WriteEndElement();
 
-                        if (!string.IsNullOrEmpty(shipmentStage.CarrierParty.PartyIdentification.Id.Value))
+
+                        if (transportMode != null && transportMode.TransportModeCode.Trim().Equals("01")) //Publico
                         {
                             writer.WriteStartElement("cac:CarrierParty");
                             {
                                 writer.WriteStartElement("cac:PartyIdentification");
                                 {
-                                    writer.WriteElementString("cbc:ID", shipmentStage.CarrierParty.PartyIdentification.Id.Value);
+                                    //writer.WriteAttributeString("cbc:ID schemeID=", shipmentStage.CarrierParty.PartyIdentification.Id.SchemeId);
+                                    //writer.WriteValue(shipmentStage.CarrierParty.PartyIdentification.Id.Value);
+
+                                    writer.WriteStartElement("cbc:ID");
+                                    {
+                                        writer.WriteAttributeString("schemeID", shipmentStage.CarrierParty.PartyIdentification.Id.SchemeId);
+                                        writer.WriteValue(shipmentStage.CarrierParty.PartyIdentification.Id.Value);
+
+                                    }
+                                    writer.WriteEndElement();
+
                                 }
                                 writer.WriteEndElement();
 
-                                writer.WriteStartElement("cac:PartyName");
+                                writer.WriteStartElement("cac:PartyLegalEntity");
                                 {
-                                    writer.WriteElementString("cbc:Name",
-                                                               shipmentStage.CarrierParty.PartyLegalEntity.RegistrationName);
-
+                                    writer.WriteElementString("cbc:RegistrationName", shipmentStage.CarrierParty.PartyLegalEntity.RegistrationName);
+                                    writer.WriteElementString("cbc:CompanyID", shipmentStage.CarrierParty.PartyLegalEntity.CompanyId);
                                 }
                                 writer.WriteEndElement();
                             }
                             writer.WriteEndElement();
                         }
 
-                        writer.WriteStartElement("cac:TransportMeans");
-                        {
-                            writer.WriteStartElement("cac:RoadTransport");
-                            {
-                                writer.WriteElementString("cbc:LicensePlateID", shipmentStage.TransportMeans.LicensePlateId);
-                            }
-                            writer.WriteEndElement();
-                        }
-                        writer.WriteEndElement();
+                        //if (!string.IsNullOrEmpty(shipmentStage.CarrierParty.PartyIdentification.Id.Value))
+                        //{
+                        //    writer.WriteStartElement("cac:TransportMeans");
+                        //    {
+                        //        writer.WriteStartElement("cac:RoadTransport");
+                        //        {
+                        //            writer.WriteElementString("cbc:LicensePlateID", shipmentStage.TransportMeans.LicensePlateId);
+                        //        }
+                        //        writer.WriteEndElement();
+                        //    }
+                        //    writer.WriteEndElement();
+                        //}
 
-                        writer.WriteStartElement("cac:DriverPerson");
+
+                        if (transportMode != null && transportMode.TransportModeCode.Trim().Equals("02")) //Privado
                         {
-                            writer.WriteStartElement("cbc:ID");
+                            writer.WriteStartElement("cac:DriverPerson");
                             {
-                                writer.WriteAttributeString("schemeID", shipmentStage.DriverPerson.Id.SchemeId);
-                                writer.WriteValue(shipmentStage.DriverPerson.Id.Value);
+                                writer.WriteStartElement("cbc:ID");
+                                {
+                                    writer.WriteAttributeString("schemeID", shipmentStage.DriverPerson.DriverIdentificationId.SchemeId);
+                                    writer.WriteAttributeString("schemeName", ValoresUbl.CompanySchemeName);
+                                    writer.WriteAttributeString("schemeAgencyName", ValoresUbl.SchemeAgencyName);
+                                    writer.WriteAttributeString("schemeURI", ValoresUbl.CompanySchemeUri);
+                                    writer.WriteValue(shipmentStage.DriverPerson.DriverIdentificationId.Value);
+
+                                }
+                                writer.WriteEndElement();
+
+
+                                writer.WriteStartElement("cbc:FirstName");
+                                {
+                                    writer.WriteValue(shipmentStage.DriverPerson.FirstName);
+                                }
+                                writer.WriteEndElement();
+
+                                writer.WriteStartElement("cbc:FamilyName");
+                                {
+                                    writer.WriteValue(shipmentStage.DriverPerson.FirstName);
+                                }
+                                writer.WriteEndElement();
+
+                                writer.WriteStartElement("cbc:JobTitle");
+                                {
+                                    writer.WriteValue("Principal");
+                                }
+                                writer.WriteEndElement();
+
+                                //writer.WriteElementString("cbc:FirstName", shipmentStage.DriverPerson.FirstName);
+                                //writer.WriteEndElement();
+
+                                writer.WriteStartElement("cac:IdentityDocumentReference");
+                                {
+                                    writer.WriteElementString("cbc:ID", shipmentStage.DriverPerson.IdentityDocumentReference);
+                                }
+                                writer.WriteEndElement();
+
                             }
                             writer.WriteEndElement();
                         }
-                        writer.WriteEndElement();
+
+      
 
                     }
                     writer.WriteEndElement();
@@ -359,61 +491,89 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
 
                 #endregion ShipmentStages
 
-                #region DeliveryAddress
+                #region Delivery
 
                 writer.WriteStartElement("cac:Delivery");
                 {
+                    #region Delivery
                     writer.WriteStartElement("cac:DeliveryAddress");
                     {
-                        writer.WriteElementString("cbc:ID", Shipment.DeliveryAddress.Id);
-                        writer.WriteElementString("cbc:StreetName", Shipment.DeliveryAddress.StreetName);
-                        writer.WriteStartElement("cac:Country");
+                        //writer.WriteElementString("cbc:ID", Shipment.DeliveryAddress.Id);
+                        writer.WriteStartElement("cbc:ID");
                         {
-                            writer.WriteElementString("cbc:IdentificationCode", "PE");
+                            writer.WriteAttributeString("schemeAgencyName", ValoresUbl.SchemeAgencyNameInei);
+                            writer.WriteAttributeString("schemeName", "Ubigeos");
+                            writer.WriteValue(Shipment.OriginAddress.Id);
+                        }
+                        writer.WriteEndElement();
+
+
+                        writer.WriteStartElement("cac:AddressLine");
+                        {
+                            writer.WriteElementString("cbc:Line", Shipment.OriginAddress.StreetName);
+                        }
+                        writer.WriteEndElement();
+
+                    }
+                    writer.WriteEndElement();
+                    #endregion Delivery
+
+                    #region Despatch
+                    writer.WriteStartElement("cac:Despatch");
+                    {
+                        writer.WriteStartElement("cac:DespatchAddress");
+                        {
+                            writer.WriteStartElement("cbc:ID");
+                            {
+                                writer.WriteAttributeString("schemeAgencyName", ValoresUbl.SchemeAgencyNameInei);
+                                writer.WriteAttributeString("schemeName", "Ubigeos");
+                                writer.WriteValue(Shipment.DeliveryAddress.Id);
+                            }
+                            writer.WriteEndElement();
+
+
+                            writer.WriteStartElement("cac:AddressLine");
+                            {
+                                writer.WriteElementString("cbc:Line", Shipment.DeliveryAddress.StreetName);
+                            }
+                            writer.WriteEndElement();
+
                         }
                         writer.WriteEndElement();
                     }
                     writer.WriteEndElement();
+                    #endregion Despatch
                 }
-                writer.WriteEndElement();
 
+                writer.WriteEndElement();
                 #endregion DeliveryAddress
+
 
                 #region TransportHandlingUnit
 
-                //writer.WriteStartElement("cac:TransportHandlingUnit");
-                //{
-                //    // Se repite la misma placa del primer vehiculo
-                //    writer.WriteElementString("cbc:ID", Shipment.ShipmentStages.First().TransportMeans.LicensePlateId);
-                //    foreach (var transportEquipment in Shipment.TransportHandlingUnit.TransportEquipments)
-                //    {
-                //        if (string.IsNullOrEmpty(transportEquipment.Id)) continue;
-                //        writer.WriteStartElement("cac:TransportEquipment");
-                //        {
-                //            writer.WriteElementString("cbc:ID", transportEquipment.Id);
-                //        }
-                //        writer.WriteEndElement();
-                //    }
-                //}
-                //writer.WriteEndElement();
 
-                #endregion TransportHandlingUnit
-
-                #region OriginAddress
-
-                writer.WriteStartElement("cac:OriginAddress");
+                
+                if (transportMode != null && transportMode.TransportModeCode.Trim().Equals("02")) //Privado
                 {
-                    writer.WriteElementString("cbc:ID", Shipment.OriginAddress.Id);
-                    writer.WriteElementString("cbc:StreetName", Shipment.OriginAddress.StreetName);
-                    writer.WriteStartElement("cac:Country");
+                    writer.WriteStartElement("cac:TransportHandlingUnit");
                     {
-                        writer.WriteElementString("cbc:IdentificationCode", "PE");
+                        // Se repite la misma placa del primer vehiculo
+                        writer.WriteElementString("cbc:ID", Shipment.ShipmentStages.First().TransportMeans.LicensePlateId);
+                        foreach (var transportEquipment in Shipment.TransportHandlingUnit.TransportEquipments)
+                        {
+                            if (string.IsNullOrEmpty(transportEquipment.Id)) continue;
+                            writer.WriteStartElement("cac:TransportEquipment");
+                            {
+                                writer.WriteElementString("cbc:ID", transportEquipment.Id);
+                            }
+                            writer.WriteEndElement();
+                        }
                     }
                     writer.WriteEndElement();
                 }
-                writer.WriteEndElement();
+                #endregion TransportHandlingUnit
 
-                #endregion OriginAddress
+
 
                 #region FirstArrivalPortLocation
 
@@ -458,7 +618,7 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
 
                     writer.WriteStartElement("cac:Item");
                     {
-                        writer.WriteElementString("cbc:Name", despatchLine.Item.Description);
+                        writer.WriteElementString("cbc:Description", despatchLine.Item.Description);
 
                         writer.WriteStartElement("cac:SellersItemIdentification");
                         {

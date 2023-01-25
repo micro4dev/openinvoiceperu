@@ -23,7 +23,8 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
-    <Use64BitIISExpress>true</Use64BitIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,7 +36,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>
     </DocumentationFile>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -120,6 +121,7 @@
     <Compile Include="Controllers\ConsultarConstanciaController.cs" />
     <Compile Include="Controllers\ConsultarTicketController.cs" />
     <Compile Include="Controllers\ConsultaValidezController.cs" />
+    <Compile Include="Controllers\EnviarGuiaRemisionRestController.cs" />
     <Compile Include="Controllers\GenerarGuiaRemisionController.cs" />
     <Compile Include="Controllers\GenerarNotaCreditoController.cs" />
     <Compile Include="Controllers\GenerarNotaDebitoController.cs" />
@@ -204,7 +206,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57780</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/OpenInvoicePeruUbl21</IISUrl>
+          <IISUrl>http://localhost/OpenInvoicePeru</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using OpenInvoicePeru.Estructuras.CommonBasicComponents;
 using OpenInvoicePeru.Estructuras.SunatAggregateComponents;
 
 namespace OpenInvoicePeru.Estructuras.CommonAggregateComponents
@@ -10,7 +12,8 @@ namespace OpenInvoicePeru.Estructuras.CommonAggregateComponents
 
         public CarrierParty CarrierParty { get; set; }
 
-        public PartyIdentification DriverPerson { get; set; }
+        //public PartyIdentification DriverPerson { get; set;
+        public DriverPerson DriverPerson { get; set; }
 
         public string TransportModeCode { get; set; }
 
@@ -23,7 +26,8 @@ namespace OpenInvoicePeru.Estructuras.CommonAggregateComponents
 
         public ShipmentStage()
         {
-            DriverPerson = new PartyIdentification();
+            //DriverPerson = new PartyIdentification();
+            DriverPerson = new DriverPerson();
             TransportMeans = new SunatRoadTransport();
         }
     }

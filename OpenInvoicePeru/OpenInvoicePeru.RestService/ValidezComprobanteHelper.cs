@@ -80,5 +80,42 @@ namespace OpenInvoicePeru.RestService
 
         }
 
+        public BaseResponseDto<TokenResponseDto> GenerarTokenGre(string clientId, string clientSecret, string userName, string password)
+        {
+            var response = new BaseResponseDto<TokenResponseDto>();
+
+            try
+            {
+                var client = new RestClient($"https://api-seguridad.sunat.gob.pe/v1/clientessol/{clientId}/oauth2/token");
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+                request.AddParameter("grant_type", "password");
+                request.AddParameter("scope", "https://api-cpe.sunat.gob.pe");
+                request.AddParameter("client_id", clientId);
+                request.AddParameter("client_secret", clientSecret);
+                request.AddParameter("username", userName);
+                request.AddParameter("password", password);
+
+                var responseMessage = client.Execute(request);
+
+                response.Success = responseMessage.IsSuccessful;
+
+                if (responseMessage.IsSuccessful)
+                {
+                    response.Result = JsonConvert.DeserializeObject<TokenResponseDto>(responseMessage.Content);
+                }
+                else
+                {
+                    response.ErrorMessage = responseMessage.ErrorMessage;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.ErrorMessage = ex.Message;
+            }
+
+            return response;
+        }
     }
 }

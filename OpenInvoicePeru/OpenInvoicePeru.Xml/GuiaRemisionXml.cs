@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using OpenInvoicePeru.Comun;
 using OpenInvoicePeru.Comun.Dto.Contratos;
 using OpenInvoicePeru.Comun.Dto.Modelos;
@@ -19,6 +20,7 @@ namespace OpenInvoicePeru.Xml
             {
                 Id = documento.IdDocumento,
                 IssueDate = Convert.ToDateTime(documento.FechaEmision),
+                IssueTime = DateTime.Parse(documento.HoraEmision),
                 DespatchAdviceTypeCode = documento.TipoDocumento,
                 Note = documento.Glosa,
                 Signature = new SignatureCac
@@ -141,17 +143,31 @@ namespace OpenInvoicePeru.Xml
                             },
                             PartyLegalEntity = new PartyLegalEntity
                             {
-                                RegistrationName = documento.RazonSocialTransportista
+                                RegistrationName = documento.RazonSocialTransportista,
+                                CompanyId = documento.NroMtc
                             }
                         },
-                        DriverPerson = new PartyIdentification
+                        //DriverPerson = new PartyIdentification
+                        //{
+                        //    Id = new PartyIdentificationId
+                        //    {
+                        //        SchemeId = "1",
+                        //        Value = documento.NroDocumentoConductor
+                        //    }
+                        //},
+                        DriverPerson = new DriverPerson()
                         {
-                            Id = new PartyIdentificationId
+                            DriverIdentificationId = new PartyIdentificationId
                             {
                                 SchemeId = "1",
                                 Value = documento.NroDocumentoConductor
-                            }
+                            },
+                            FirstName = documento.NombreConductor,
+                            FamilyName = documento.NombreConductor,
+                            JobTitle = "Principal",
+                            IdentityDocumentReference = documento.NroLicenciaConductor
                         },
+
                         TransportMeans = new SunatRoadTransport
                         {
                             LicensePlateId = documento.NroPlacaVehiculo
