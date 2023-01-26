@@ -1507,14 +1507,13 @@ namespace OpenInvoicePeru.ClienteConsola
             {
 
                 File.WriteAllBytes($"{nroTicket}.zip", Convert.FromBase64String(response.TramaZipCdr));
-
                 Console.WriteLine($"Código: {response.CodigoRespuesta} => {response.MensajeRespuesta}");
             }
             else
             {
                 Console.WriteLine($"Código: {response.CodigoRespuesta}");
-                Console.WriteLine($"Código: {response.MensajeRespuesta}");
-                Console.WriteLine($"Código: {response.MensajeError}");
+                Console.WriteLine($"Mensaje: {response.MensajeRespuesta}");
+                Console.WriteLine($"Error: {response.MensajeError}");
 
             }
 
