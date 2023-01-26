@@ -54,6 +54,7 @@ namespace OpenInvoicePeru.WebApi.Controllers
                 }
 
                 string url = $"{request.EndPointUrl}/{nombreArchivo}";
+                //await Task.Delay(455);
 
                 var restClient = new RestClient(url);
                 var restRequest = new RestRequest(Method.POST);
@@ -82,11 +83,13 @@ namespace OpenInvoicePeru.WebApi.Controllers
 
                 if (result.IsSuccessful)
                 {
-                    response.NroTicket = JsonConvert.DeserializeObject<TicketResponseDto>(result.Content).NumTicket;
+                    response.Exito = true;
+                    response.NroTicket = JsonConvert.DeserializeObject<TicketEnvioResponseDto>(result.Content).NumTicket;
                     //await Task.Delay(455);
                 }
                 else
                 {
+                    response.Exito = false;
                     response.MensajeError = result.Content;
                     //await Task.Delay(455);
                 }

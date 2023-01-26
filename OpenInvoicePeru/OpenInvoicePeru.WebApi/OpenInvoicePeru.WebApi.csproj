@@ -119,6 +119,7 @@
     <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ConsultarConstanciaController.cs" />
+    <Compile Include="Controllers\ConsultarTicketRestController.cs" />
     <Compile Include="Controllers\ConsultarTicketController.cs" />
     <Compile Include="Controllers\ConsultaValidezController.cs" />
     <Compile Include="Controllers\EnviarGuiaRemisionRestController.cs" />

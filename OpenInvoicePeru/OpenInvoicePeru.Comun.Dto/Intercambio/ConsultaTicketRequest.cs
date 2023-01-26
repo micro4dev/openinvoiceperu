@@ -6,5 +6,7 @@ namespace OpenInvoicePeru.Comun.Dto.Intercambio
     {
         [JsonProperty(Required = Required.Always)]
         public string NroTicket { get; set; }
+        public string Token { get; set; }
+
     }
 }
