@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using EnviarResumenResponse = OpenInvoicePeru.Comun.Dto.Intercambio.EnviarResumenResponse;
 
 namespace OpenInvoicePeru.ClienteConsola
 {
@@ -13,6 +14,9 @@ namespace OpenInvoicePeru.ClienteConsola
         private const string UrlSunat = "https://e-beta.sunat.gob.pe/ol-ti-itcpfegem-beta/billService";
         private const string FormatoFecha = "yyyy-MM-dd";
         private const string UrlGuiaRemision = "https://e-beta.sunat.gob.pe/ol-ti-itemision-guia-gem-beta/billService";
+        private const string UrlGuiaRemisionRest = "https://api-cpe.sunat.gob.pe/v1/contribuyente/gem/comprobantes";
+
+        
 
         static void Main()
         {
@@ -1483,7 +1487,7 @@ namespace OpenInvoicePeru.ClienteConsola
                 Console.WriteLine("Ejemplo de Guia de Remisión");
                 var guia = new GuiaRemision
                 {
-                    IdDocumento = "T000-00000015",
+                    IdDocumento = "T000-00000016",
                     FechaEmision = DateTime.Today.ToString(FormatoFecha),
                     HoraEmision = DateTime.Now.ToString("HH:mm:ss"),
                     TipoDocumento = "09",
@@ -1569,23 +1573,26 @@ namespace OpenInvoicePeru.ClienteConsola
                     Ruc = guia.Remitente.NroDocumento,
                     UsuarioSol = "TUCELFE1",
                     ClaveSol = "CommonApp1",
-                    EndPointUrl = UrlGuiaRemision,
+                    EndPointUrl = UrlGuiaRemisionRest,
                     IdDocumento = guia.IdDocumento,
                     TipoDocumento = guia.TipoDocumento,
-                    TramaXmlFirmado = responseFirma.TramaXmlFirmado
+                    TramaXmlFirmado = responseFirma.TramaXmlFirmado,
+                    Token = "eyJraWQiOiJhcGkuc3VuYXQuZ29iLnBlLmtpZDAwMSIsInR5cCI6IkpXVCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyMDU1OTE3MDYwOCIsImF1ZCI6Ilt7XCJhcGlcIjpcImh0dHBzOlwvXC9hcGktY3BlLnN1bmF0LmdvYi5wZVwiLFwicmVjdXJzb1wiOlt7XCJpZFwiOlwiXC92MVwvY29udHJpYnV5ZW50ZVwvZ2VtXCIsXCJpbmRpY2Fkb3JcIjpcIjFcIixcImd0XCI6XCIxMDAwMDBcIn1dfV0iLCJ1c2VyZGF0YSI6eyJudW1SVUMiOiIyMDU1OTE3MDYwOCIsInRpY2tldCI6IjEyNTIyNDM1NDkyOSIsIm5yb1JlZ2lzdHJvIjoiIiwiYXBlTWF0ZXJubyI6IiIsImxvZ2luIjoiMjA1NTkxNzA2MDhUVUNFTEZFMSIsIm5vbWJyZUNvbXBsZXRvIjoiVFVDRUwgR1JPVVAgUy5BLkMuIiwibm9tYnJlcyI6IlRVQ0VMIEdST1VQIFMuQS5DLiIsImNvZERlcGVuZCI6IjAwNTMiLCJjb2RUT3BlQ29tZXIiOiIiLCJjb2RDYXRlIjoiIiwibml2ZWxVTyI6MCwiY29kVU8iOiIiLCJjb3JyZW8iOiIiLCJ1c3VhcmlvU09MIjoiVFVDRUxGRTEiLCJpZCI6IiIsImRlc1VPIjoiIiwiZGVzQ2F0ZSI6IiIsImFwZVBhdGVybm8iOiIiLCJpZENlbHVsYXIiOm51bGwsIm1hcCI6eyJpc0Nsb24iOmZhbHNlLCJkZHBEYXRhIjp7ImRkcF9udW1ydWMiOiIyMDU1OTE3MDYwOCIsImRkcF9udW1yZWciOiIwMDUzIiwiZGRwX2VzdGFkbyI6IjAwIiwiZGRwX2ZsYWcyMiI6IjAwIiwiZGRwX3ViaWdlbyI6IjA0MDEwMSIsImRkcF90YW1hbm8iOiIwMyIsImRkcF90cG9lbXAiOiIzOSIsImRkcF9jaWl1IjoiNjQyMDcifSwiaWRNZW51IjoiMTI1MjI0MzU0OTI5Iiwiam5kaVBvb2wiOiJwMDA1MyIsInRpcFVzdWFyaW8iOiIxIiwidGlwT3JpZ2VuIjoiSVQiLCJwcmltZXJBY2Nlc28iOnRydWV9fSwibmJmIjoxNjc0NzA0NjM0LCJjbGllbnRJZCI6ImM5NjRkMzNhLThlMDgtNDY2NC1hZDI1LTMwODljMWY2Y2RlOCIsImlzcyI6Imh0dHBzOlwvXC9hcGktc2VndXJpZGFkLnN1bmF0LmdvYi5wZVwvdjFcL2NsaWVudGVzc29sXC9jOTY0ZDMzYS04ZTA4LTQ2NjQtYWQyNS0zMDg5YzFmNmNkZThcL29hdXRoMlwvdG9rZW5cLyIsImV4cCI6MTY3NDcwODIzNCwiZ3JhbnRUeXBlIjoicGFzc3dvcmQiLCJpYXQiOjE2NzQ3MDQ2MzR9.DD6LzATDQxA3BF2umblqccRD2GudO6kuVXAJ-PH7iTnQnoIDB7rg7qNFq85wA9_A0HB_KthZuASUdqPUu7ZhIPK4DINp8GkWlLnYFuWhjleRl_5EIVmpXsv0xSvkLXigbJZUn_8Byk9FETonZ4EzTXjM06WBfcIqtJb0e14eQL7spCnk0hGiHR9he82_iyNtg3R-aSadZk4WG0mWDDFdS9vJHn1bSk8a_-AUh3cB3CeBy6aAY_42rzh_bCTCJZnI3hbMdaTD-NZERaoLfPR8L7CE2aa0yWb97hkIukSciQM09YqWLMSrNrvRS7ox_CaSRQqYwYgrnR9WosNoJrzKJw"
                 };
 
-                var enviarDocumentoResponse = RestHelper<EnviarDocumentoRequest, EnviarDocumentoResponse>.Execute("EnviarGuiaRemisionRest", documentoRequest);
+                //var enviarDocumentoResponse = RestHelper<EnviarDocumentoRequest, EnviarDocumentoResponse>.Execute("EnviarGuiaRemisionRest", documentoRequest);
+                var enviarDocumentoResponse = RestHelper<EnviarDocumentoRequest, EnviarResumenResponse>.Execute("EnviarGuiaRemisionRest", documentoRequest);
+                
 
                 if (!enviarDocumentoResponse.Exito)
                 {
                     throw new InvalidOperationException(enviarDocumentoResponse.MensajeError);
                 }
 
-                File.WriteAllBytes("GuaiRemisionCdr.zip", Convert.FromBase64String(enviarDocumentoResponse.TramaZipCdr));
+                //File.WriteAllBytes("GuaiRemisionCdr.zip", Convert.FromBase64String(enviarDocumentoResponse.TramaZipCdr));
 
-                Console.WriteLine("Respuesta de SUNAT:");
-                Console.WriteLine(enviarDocumentoResponse.MensajeRespuesta);
+                Console.WriteLine("Respuesta de SUNAT Ticket:");
+                Console.WriteLine(enviarDocumentoResponse.NroTicket);
             }
             catch (Exception ex)
             {

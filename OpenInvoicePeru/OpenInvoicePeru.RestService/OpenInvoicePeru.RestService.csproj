@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiSunatDto\BaseResponseDto.cs" />
+    <Compile Include="ApiSunatDto\TicketResponseDto.cs" />
     <Compile Include="ApiSunatDto\TokenResponseDto.cs" />
     <Compile Include="ApiSunatDto\ValidacionRequest.cs" />
     <Compile Include="ApiSunatDto\ValidacionResponse.cs" />
