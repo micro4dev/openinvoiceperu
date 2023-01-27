@@ -17,13 +17,11 @@ namespace OpenInvoicePeru.WebApi.Controllers
     public class EnviarDocumentoRestController : ApiController
     {
         private readonly ISerializador _serializador;
-        private readonly IServicioSunatDocumentos _servicioSunatDocumentos;
 
         /// <inheritdoc />
-        public EnviarDocumentoRestController(ISerializador serializador, IServicioSunatDocumentos servicioSunatDocumentos)
+        public EnviarDocumentoRestController(ISerializador serializador)
         {
             _serializador = serializador;
-            _servicioSunatDocumentos = servicioSunatDocumentos;
         }
 
         /// <summary>

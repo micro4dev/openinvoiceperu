@@ -14,14 +14,11 @@ namespace OpenInvoicePeru.WebApi.Controllers
     /// <inheritdoc />
     public class ConsultarTicketRestController : ApiController
     {
-        private readonly IServicioSunatDocumentos _servicioSunatDocumentos;
-        private readonly ISerializador _serializador;
 
         /// <inheritdoc />
-        public ConsultarTicketRestController(IServicioSunatDocumentos servicioSunatDocumentos, ISerializador serializador)
+        public ConsultarTicketRestController()
         {
-            _servicioSunatDocumentos = servicioSunatDocumentos;
-            _serializador = serializador;
+
         }
 
         /// <summary>

@@ -1529,7 +1529,7 @@ namespace OpenInvoicePeru.ClienteConsola
                 Console.WriteLine("Ejemplo de Guia de Remisión");
                 var guia = new GuiaRemision
                 {
-                    IdDocumento = "T000-00000020",
+                    IdDocumento = "T000-00000023",
                     FechaEmision = DateTime.Today.ToString(FormatoFecha),
                     HoraEmision = DateTime.Now.ToString("HH:mm:ss"),
                     TipoDocumento = "09",
