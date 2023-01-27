@@ -27,27 +27,6 @@ namespace OpenInvoicePeru.WebApi.Controllers
             _helper = helper; 
         }
 
-
-        [HttpPost]
-        [Route("api/GenerarGuiaRemision/GenerarToken")]
-        [SwaggerResponse(200, "OK", typeof(TokenResponse))]
-        [SwaggerResponse(400, "Bad Request", typeof(RespuestaComun))]
-        [SwaggerResponse(209, "Conflicts", typeof(RespuestaComun))]
-        public IHttpActionResult GenerarTokenGre(CrearTokenRequest request)
-        {
-            var response = new TokenResponse();
-
-            var result = _helper.GenerarTokenGre(request.ClientId,
-                request.ClientSecret, request.UserName, request.Password);
-
-            response.AccessToken = result.Result.AccessToken;
-            response.Exito = result.Success;
-            response.MensajeError = result.ErrorMessage;
-
-            return Ok(response);
-
-        }
-
         /// <summary>
         /// Genera el XML para la Guia de Remision.
         /// </summary>

@@ -122,7 +122,7 @@
     <Compile Include="Controllers\ConsultarTicketRestController.cs" />
     <Compile Include="Controllers\ConsultarTicketController.cs" />
     <Compile Include="Controllers\ConsultaValidezController.cs" />
-    <Compile Include="Controllers\EnviarGuiaRemisionRestController.cs" />
+    <Compile Include="Controllers\EnviarDocumentoRestController.cs" />
     <Compile Include="Controllers\GenerarGuiaRemisionController.cs" />
     <Compile Include="Controllers\GenerarNotaCreditoController.cs" />
     <Compile Include="Controllers\GenerarNotaDebitoController.cs" />
@@ -134,6 +134,7 @@
     <Compile Include="Controllers\GenerarResumenDiarioController.cs" />
     <Compile Include="Controllers\GenerarComunicacionBajaController.cs" />
     <Compile Include="Controllers\GenerarRetencionController.cs" />
+    <Compile Include="Controllers\GenerarToken.cs" />
     <Compile Include="Filters\ValidateModelAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

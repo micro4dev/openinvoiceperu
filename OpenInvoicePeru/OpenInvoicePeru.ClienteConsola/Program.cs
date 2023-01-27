@@ -17,7 +17,7 @@ namespace OpenInvoicePeru.ClienteConsola
         private const string UrlSunatRest = "https://api-cpe.sunat.gob.pe/v1/contribuyente/gem/comprobantes";
 
         private const string TokenRest =
-            "eyJraWQiOiJhcGkuc3VuYXQuZ29iLnBlLmtpZDAwMSIsInR5cCI6IkpXVCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyMDU1OTE3MDYwOCIsImF1ZCI6Ilt7XCJhcGlcIjpcImh0dHBzOlwvXC9hcGktY3BlLnN1bmF0LmdvYi5wZVwiLFwicmVjdXJzb1wiOlt7XCJpZFwiOlwiXC92MVwvY29udHJpYnV5ZW50ZVwvZ2VtXCIsXCJpbmRpY2Fkb3JcIjpcIjFcIixcImd0XCI6XCIxMDAwMDBcIn1dfV0iLCJ1c2VyZGF0YSI6eyJudW1SVUMiOiIyMDU1OTE3MDYwOCIsInRpY2tldCI6IjEyNjEyNTUzNzAyNiIsIm5yb1JlZ2lzdHJvIjoiIiwiYXBlTWF0ZXJubyI6IiIsImxvZ2luIjoiMjA1NTkxNzA2MDhUVUNFTEZFMSIsIm5vbWJyZUNvbXBsZXRvIjoiVFVDRUwgR1JPVVAgUy5BLkMuIiwibm9tYnJlcyI6IlRVQ0VMIEdST1VQIFMuQS5DLiIsImNvZERlcGVuZCI6IjAwNTMiLCJjb2RUT3BlQ29tZXIiOiIiLCJjb2RDYXRlIjoiIiwibml2ZWxVTyI6MCwiY29kVU8iOiIiLCJjb3JyZW8iOiIiLCJ1c3VhcmlvU09MIjoiVFVDRUxGRTEiLCJpZCI6IiIsImRlc1VPIjoiIiwiZGVzQ2F0ZSI6IiIsImFwZVBhdGVybm8iOiIiLCJpZENlbHVsYXIiOm51bGwsIm1hcCI6eyJpc0Nsb24iOmZhbHNlLCJkZHBEYXRhIjp7ImRkcF9udW1ydWMiOiIyMDU1OTE3MDYwOCIsImRkcF9udW1yZWciOiIwMDUzIiwiZGRwX2VzdGFkbyI6IjAwIiwiZGRwX2ZsYWcyMiI6IjAwIiwiZGRwX3ViaWdlbyI6IjA0MDEwMSIsImRkcF90YW1hbm8iOiIwMyIsImRkcF90cG9lbXAiOiIzOSIsImRkcF9jaWl1IjoiNjQyMDcifSwiaWRNZW51IjoiMTI2MTI1NTM3MDI2Iiwiam5kaVBvb2wiOiJwMDA1MyIsInRpcFVzdWFyaW8iOiIxIiwidGlwT3JpZ2VuIjoiSVQiLCJwcmltZXJBY2Nlc28iOnRydWV9fSwibmJmIjoxNjc0NzU1NzM3LCJjbGllbnRJZCI6ImM5NjRkMzNhLThlMDgtNDY2NC1hZDI1LTMwODljMWY2Y2RlOCIsImlzcyI6Imh0dHBzOlwvXC9hcGktc2VndXJpZGFkLnN1bmF0LmdvYi5wZVwvdjFcL2NsaWVudGVzc29sXC9jOTY0ZDMzYS04ZTA4LTQ2NjQtYWQyNS0zMDg5YzFmNmNkZThcL29hdXRoMlwvdG9rZW5cLyIsImV4cCI6MTY3NDc1OTMzNywiZ3JhbnRUeXBlIjoicGFzc3dvcmQiLCJpYXQiOjE2NzQ3NTU3Mzd9.VSCrZgmML-iXA6QX1kjQM2coECNqKSqHa2yZOY50cGPIidUYMxNI9Au69NEyEBuzA1Tz99reDSOQgFMjk5-71DGaERSRUapJCiHQmMgPH6Xv7s1HncCa4DQTUFZpQvIs1Wx-eRDdOlAlwQiBBCAmwaF9lYsoMAZUp0W8QfDvY_i-wio2x0w8upc81A-fsoS9M_5FDEnfVV1ss3NEvJkZfM2NKtFFhc4-e6DlwS7ZG_lmC2ErR2PALRdrBv9DIBG-c4k1Fd2RfqkDWZcz4ViMFnPew9trYa2FdreBcYgFnrNM6je4gDSBvK-WaOBzByY8PMsKOuLozvwqCT2dw4h_7w";
+            "eyJraWQiOiJhcGkuc3VuYXQuZ29iLnBlLmtpZDAwMSIsInR5cCI6IkpXVCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyMDU1OTE3MDYwOCIsImF1ZCI6Ilt7XCJhcGlcIjpcImh0dHBzOlwvXC9hcGktY3BlLnN1bmF0LmdvYi5wZVwiLFwicmVjdXJzb1wiOlt7XCJpZFwiOlwiXC92MVwvY29udHJpYnV5ZW50ZVwvZ2VtXCIsXCJpbmRpY2Fkb3JcIjpcIjFcIixcImd0XCI6XCIxMDAwMDBcIn1dfV0iLCJ1c2VyZGF0YSI6eyJudW1SVUMiOiIyMDU1OTE3MDYwOCIsInRpY2tldCI6IjEyNzE1NTkxMTY0OSIsIm5yb1JlZ2lzdHJvIjoiIiwiYXBlTWF0ZXJubyI6IiIsImxvZ2luIjoiMjA1NTkxNzA2MDhUVUNFTEZFMSIsIm5vbWJyZUNvbXBsZXRvIjoiVFVDRUwgR1JPVVAgUy5BLkMuIiwibm9tYnJlcyI6IlRVQ0VMIEdST1VQIFMuQS5DLiIsImNvZERlcGVuZCI6IjAwNTMiLCJjb2RUT3BlQ29tZXIiOiIiLCJjb2RDYXRlIjoiIiwibml2ZWxVTyI6MCwiY29kVU8iOiIiLCJjb3JyZW8iOiIiLCJ1c3VhcmlvU09MIjoiVFVDRUxGRTEiLCJpZCI6IiIsImRlc1VPIjoiIiwiZGVzQ2F0ZSI6IiIsImFwZVBhdGVybm8iOiIiLCJpZENlbHVsYXIiOm51bGwsIm1hcCI6eyJpc0Nsb24iOmZhbHNlLCJkZHBEYXRhIjp7ImRkcF9udW1ydWMiOiIyMDU1OTE3MDYwOCIsImRkcF9udW1yZWciOiIwMDUzIiwiZGRwX2VzdGFkbyI6IjAwIiwiZGRwX2ZsYWcyMiI6IjAwIiwiZGRwX3ViaWdlbyI6IjA0MDEwMSIsImRkcF90YW1hbm8iOiIwMyIsImRkcF90cG9lbXAiOiIzOSIsImRkcF9jaWl1IjoiNjQyMDcifSwiaWRNZW51IjoiMTI3MTU1OTExNjQ5Iiwiam5kaVBvb2wiOiJwMDA1MyIsInRpcFVzdWFyaW8iOiIxIiwidGlwT3JpZ2VuIjoiSVQiLCJwcmltZXJBY2Nlc28iOnRydWV9fSwibmJmIjoxNjc0ODUzMTUxLCJjbGllbnRJZCI6ImM5NjRkMzNhLThlMDgtNDY2NC1hZDI1LTMwODljMWY2Y2RlOCIsImlzcyI6Imh0dHBzOlwvXC9hcGktc2VndXJpZGFkLnN1bmF0LmdvYi5wZVwvdjFcL2NsaWVudGVzc29sXC9jOTY0ZDMzYS04ZTA4LTQ2NjQtYWQyNS0zMDg5YzFmNmNkZThcL29hdXRoMlwvdG9rZW5cLyIsImV4cCI6MTY3NDg1Njc1MSwiZ3JhbnRUeXBlIjoicGFzc3dvcmQiLCJpYXQiOjE2NzQ4NTMxNTF9.NDyU12LVm0mjKH25AsU2b_8FJs0YSg0o5w0eRN7InKfweZrWuKG_jNyNaQjpsXzQWMm_5tMYimD8JdMOrvNjd2V8lSWh6g4O9wFxXE_Q39YOtvHpVEA-VoQnNidwvsbZcDS6PwEPlIaJSKdnmGBqmz6AaD8vXzvUH9K9SLTsrWJ37fDIe5z-r0dZaMAzS_C2bgvEPbipquTovp25xPfINSrBSRz-Ftq7skP4SqoCF-u9fRY9gIcKzy94hvxg3H06PsPQ8bgBf5hheXg8YEGK0WMirfs6uEovcJ1pAT1dPNfKIXsEqRQdjJnjHO-Aq6Wou7uVdISUKGgALbLprKhFEw";
 
 
 
@@ -1551,6 +1551,7 @@ namespace OpenInvoicePeru.ClienteConsola
                     FechaInicioTraslado = DateTime.Today.ToString(FormatoFecha),
                     RucTransportista = "10432639687",
                     RazonSocialTransportista = "FRAMEWORK PERU",
+                    NroMtc = "0001",
                     NroPlacaVehiculo = "V0Q504",
                     NumeroContenedor = "V0Q504",
                     NroDocumentoConductor = "41075490",
@@ -1622,8 +1623,7 @@ namespace OpenInvoicePeru.ClienteConsola
                     Token = TokenRest
                 };
 
-                //var enviarDocumentoResponse = RestHelper<EnviarDocumentoRequest, EnviarDocumentoResponse>.Execute("EnviarGuiaRemisionRest", documentoRequest);
-                var enviarDocumentoResponse = RestHelper<EnviarDocumentoRequest, EnviarResumenResponse>.Execute("EnviarGuiaRemisionRest", documentoRequest);
+                var enviarDocumentoResponse = RestHelper<EnviarDocumentoRequest, EnviarResumenResponse>.Execute("EnviarDocumentoRest", documentoRequest);
                 
 
                 if (!enviarDocumentoResponse.Exito)
@@ -1637,6 +1637,7 @@ namespace OpenInvoicePeru.ClienteConsola
                 Console.WriteLine(enviarDocumentoResponse.NroTicket);
 
                 ConsultarTicketRest(enviarDocumentoResponse.NroTicket, documentoRequest.Ruc);
+                Console.ReadLine();
 
             }
             catch (Exception ex)
@@ -1656,7 +1657,7 @@ namespace OpenInvoicePeru.ClienteConsola
                 Console.WriteLine("Ejemplo de Guia de Remisión");
                 var guia = new GuiaRemision
                 {
-                    IdDocumento = "T000-00000008",
+                    IdDocumento = "T000-00000022",
                     FechaEmision = DateTime.Today.ToString(FormatoFecha),
                     HoraEmision = DateTime.Now.ToString("HH:mm:ss"),
                     TipoDocumento = "09",
@@ -1743,23 +1744,30 @@ namespace OpenInvoicePeru.ClienteConsola
                     Ruc = guia.Remitente.NroDocumento,
                     UsuarioSol = "TUCELFE1",
                     ClaveSol = "CommonApp1",
-                    EndPointUrl = UrlGuiaRemision,
+                    EndPointUrl = UrlSunatRest,
                     IdDocumento = guia.IdDocumento,
                     TipoDocumento = guia.TipoDocumento,
-                    TramaXmlFirmado = responseFirma.TramaXmlFirmado
+                    TramaXmlFirmado = responseFirma.TramaXmlFirmado,
+                    Token = TokenRest
                 };
 
-                var enviarDocumentoResponse = RestHelper<EnviarDocumentoRequest, EnviarDocumentoResponse>.Execute("EnviarGuiaRemisionRest", documentoRequest);
+                var enviarDocumentoResponse = RestHelper<EnviarDocumentoRequest, EnviarResumenResponse>.Execute("EnviarDocumentoRest", documentoRequest);
 
                 if (!enviarDocumentoResponse.Exito)
                 {
                     throw new InvalidOperationException(enviarDocumentoResponse.MensajeError);
                 }
 
-                File.WriteAllBytes("GuaiRemisionCdr.zip", Convert.FromBase64String(enviarDocumentoResponse.TramaZipCdr));
+                //File.WriteAllBytes("GuaiRemisionCdr.zip", Convert.FromBase64String(enviarDocumentoResponse.TramaZipCdr));
 
-                Console.WriteLine("Respuesta de SUNAT:");
-                Console.WriteLine(enviarDocumentoResponse.MensajeRespuesta);
+                //Console.WriteLine("Respuesta de SUNAT:");
+                //Console.WriteLine(enviarDocumentoResponse.MensajeRespuesta);
+
+                Console.WriteLine("Respuesta de SUNAT Ticket:");
+                Console.WriteLine(enviarDocumentoResponse.NroTicket);
+
+                ConsultarTicketRest(enviarDocumentoResponse.NroTicket, documentoRequest.Ruc);
+                Console.ReadLine();
             }
             catch (Exception ex)
             {

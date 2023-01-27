@@ -14,13 +14,13 @@ using Newtonsoft.Json;
 namespace OpenInvoicePeru.WebApi.Controllers
 {
     /// <inheritdoc />
-    public class EnviarGuiaRemisionRestController : ApiController
+    public class EnviarDocumentoRestController : ApiController
     {
         private readonly ISerializador _serializador;
         private readonly IServicioSunatDocumentos _servicioSunatDocumentos;
 
         /// <inheritdoc />
-        public EnviarGuiaRemisionRestController(ISerializador serializador, IServicioSunatDocumentos servicioSunatDocumentos)
+        public EnviarDocumentoRestController(ISerializador serializador, IServicioSunatDocumentos servicioSunatDocumentos)
         {
             _serializador = serializador;
             _servicioSunatDocumentos = servicioSunatDocumentos;
@@ -33,7 +33,7 @@ namespace OpenInvoicePeru.WebApi.Controllers
         [SwaggerResponse(200, "OK", typeof(EnviarResumenResponse))]
         [SwaggerResponse(400, "Bad Request", typeof(string))]
         [SwaggerResponse(209, "Conflicts", typeof(string))]
-        public async Task<IHttpActionResult> EnviarGuiaRemisionRest([FromBody]EnviarDocumentoRequest request)
+        public async Task<IHttpActionResult> EnviarDocumentoRest([FromBody]EnviarDocumentoRequest request)
         {
             //var response = new EnviarDocumentoResponse();
             var response = new EnviarResumenResponse();

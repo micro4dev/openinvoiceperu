@@ -80,7 +80,7 @@ namespace OpenInvoicePeru.RestService
 
         }
 
-        public BaseResponseDto<TokenResponseDto> GenerarTokenGre(string clientId, string clientSecret, string userName, string password)
+        public BaseResponseDto<TokenResponseDto> GenerarTokenSunat(string clientId, string clientSecret, string userName, string password)
         {
             var response = new BaseResponseDto<TokenResponseDto>();
 

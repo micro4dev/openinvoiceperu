@@ -38,14 +38,14 @@ namespace OpenInvoicePeru.WebApi.Controllers
             try
             {
                 string url = $"{request.EndPointUrl}/envios/{request.NroTicket}";
-                await Task.Delay(455);
+                //await Task.Delay(455);
                 var restClient = new RestClient(url);
                 var restRequest = new RestRequest(Method.GET);
 
                 restRequest.AddHeader("Authorization", "Bearer " + request.Token);
 
                 var result = await restClient.ExecuteAsync(restRequest);
-                await Task.Delay(455);
+                //await Task.Delay(455);
 
                 response.Exito = result.IsSuccessful;
 
@@ -54,7 +54,7 @@ namespace OpenInvoicePeru.WebApi.Controllers
                     TicketResponseDto ticketResponseDto =
                         JsonConvert.DeserializeObject<TicketResponseDto>(result.Content);
 
-                    await Task.Delay(455);
+                    //await Task.Delay(455);
 
 
                     if (ticketResponseDto.CodRespuesta.Equals("0"))
@@ -62,7 +62,7 @@ namespace OpenInvoicePeru.WebApi.Controllers
                         response.Exito = true;
                         response.CodigoRespuesta = ticketResponseDto.CodRespuesta;
                         response.TramaZipCdr = ticketResponseDto.ArcCdr;
-                        await Task.Delay(455);
+                        //await Task.Delay(455);
 
                     }
                     else
@@ -71,7 +71,7 @@ namespace OpenInvoicePeru.WebApi.Controllers
                         response.CodigoRespuesta = ticketResponseDto.CodRespuesta;
                         response.TramaZipCdr = ticketResponseDto.ArcCdr;
                         response.MensajeError = result.Content;
-                        await Task.Delay(455);
+                        //await Task.Delay(455);
 
                     }
                 }
@@ -79,7 +79,7 @@ namespace OpenInvoicePeru.WebApi.Controllers
                 {
                     response.MensajeError = result.Content;
                     response.Exito = false;
-                    await Task.Delay(455);
+                    //await Task.Delay(455);
                 }
 
                 //restRequest.AddHeader("Content-Type", "application/json");

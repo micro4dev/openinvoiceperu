@@ -6,7 +6,7 @@ namespace OpenInvoicePeru.RestService
     {
         BaseResponseDto<TokenResponseDto> GenerarToken(string clientId, string clientSecret);
         ValidacionResponse Validar(string rucReceptor, string token, ValidacionRequest request);
-        BaseResponseDto<TokenResponseDto> GenerarTokenGre(string clientId, string clientSecret, string userName, string password);
+        BaseResponseDto<TokenResponseDto> GenerarTokenSunat(string clientId, string clientSecret, string userName, string password);
 
     }
 }
