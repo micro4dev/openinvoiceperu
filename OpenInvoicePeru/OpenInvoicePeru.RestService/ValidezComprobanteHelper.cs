@@ -106,7 +106,8 @@ namespace OpenInvoicePeru.RestService
                 }
                 else
                 {
-                    response.ErrorMessage = responseMessage.ErrorMessage;
+                    response.Result = new TokenResponseDto();
+                    response.ErrorMessage = responseMessage.Content;
                 }
             }
             catch (Exception ex)

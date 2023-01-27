@@ -4,6 +4,7 @@ using OpenInvoicePeru.RestService;
 using OpenInvoicePeru.WebApi.Utils;
 using OpenInvoicePeru.Xml;
 using Swashbuckle.Swagger.Annotations;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace OpenInvoicePeru.WebApi.Controllers
@@ -26,6 +27,7 @@ namespace OpenInvoicePeru.WebApi.Controllers
 
             var result = _helper.GenerarTokenSunat(request.ClientId,
                 request.ClientSecret, request.UserName, request.Password);
+
 
             response.AccessToken = result.Result.AccessToken;
             response.Exito = result.Success;
