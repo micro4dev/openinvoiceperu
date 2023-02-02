@@ -17,7 +17,7 @@ namespace OpenInvoicePeru.ClienteConsola
         private const string UrlSunatRest = "https://api-cpe.sunat.gob.pe/v1/contribuyente/gem/comprobantes";
 
         private const string TokenRest =
-            "eyJraWQiOiJhcGkuc3VuYXQuZ29iLnBlLmtpZDAwMSIsInR5cCI6IkpXVCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyMDU1OTE3MDYwOCIsImF1ZCI6Ilt7XCJhcGlcIjpcImh0dHBzOlwvXC9hcGktY3BlLnN1bmF0LmdvYi5wZVwiLFwicmVjdXJzb1wiOlt7XCJpZFwiOlwiXC92MVwvY29udHJpYnV5ZW50ZVwvZ2VtXCIsXCJpbmRpY2Fkb3JcIjpcIjFcIixcImd0XCI6XCIxMDAwMDBcIn1dfV0iLCJ1c2VyZGF0YSI6eyJudW1SVUMiOiIyMDU1OTE3MDYwOCIsInRpY2tldCI6IjEyNzE1NTkxMTY0OSIsIm5yb1JlZ2lzdHJvIjoiIiwiYXBlTWF0ZXJubyI6IiIsImxvZ2luIjoiMjA1NTkxNzA2MDhUVUNFTEZFMSIsIm5vbWJyZUNvbXBsZXRvIjoiVFVDRUwgR1JPVVAgUy5BLkMuIiwibm9tYnJlcyI6IlRVQ0VMIEdST1VQIFMuQS5DLiIsImNvZERlcGVuZCI6IjAwNTMiLCJjb2RUT3BlQ29tZXIiOiIiLCJjb2RDYXRlIjoiIiwibml2ZWxVTyI6MCwiY29kVU8iOiIiLCJjb3JyZW8iOiIiLCJ1c3VhcmlvU09MIjoiVFVDRUxGRTEiLCJpZCI6IiIsImRlc1VPIjoiIiwiZGVzQ2F0ZSI6IiIsImFwZVBhdGVybm8iOiIiLCJpZENlbHVsYXIiOm51bGwsIm1hcCI6eyJpc0Nsb24iOmZhbHNlLCJkZHBEYXRhIjp7ImRkcF9udW1ydWMiOiIyMDU1OTE3MDYwOCIsImRkcF9udW1yZWciOiIwMDUzIiwiZGRwX2VzdGFkbyI6IjAwIiwiZGRwX2ZsYWcyMiI6IjAwIiwiZGRwX3ViaWdlbyI6IjA0MDEwMSIsImRkcF90YW1hbm8iOiIwMyIsImRkcF90cG9lbXAiOiIzOSIsImRkcF9jaWl1IjoiNjQyMDcifSwiaWRNZW51IjoiMTI3MTU1OTExNjQ5Iiwiam5kaVBvb2wiOiJwMDA1MyIsInRpcFVzdWFyaW8iOiIxIiwidGlwT3JpZ2VuIjoiSVQiLCJwcmltZXJBY2Nlc28iOnRydWV9fSwibmJmIjoxNjc0ODUzMTUxLCJjbGllbnRJZCI6ImM5NjRkMzNhLThlMDgtNDY2NC1hZDI1LTMwODljMWY2Y2RlOCIsImlzcyI6Imh0dHBzOlwvXC9hcGktc2VndXJpZGFkLnN1bmF0LmdvYi5wZVwvdjFcL2NsaWVudGVzc29sXC9jOTY0ZDMzYS04ZTA4LTQ2NjQtYWQyNS0zMDg5YzFmNmNkZThcL29hdXRoMlwvdG9rZW5cLyIsImV4cCI6MTY3NDg1Njc1MSwiZ3JhbnRUeXBlIjoicGFzc3dvcmQiLCJpYXQiOjE2NzQ4NTMxNTF9.NDyU12LVm0mjKH25AsU2b_8FJs0YSg0o5w0eRN7InKfweZrWuKG_jNyNaQjpsXzQWMm_5tMYimD8JdMOrvNjd2V8lSWh6g4O9wFxXE_Q39YOtvHpVEA-VoQnNidwvsbZcDS6PwEPlIaJSKdnmGBqmz6AaD8vXzvUH9K9SLTsrWJ37fDIe5z-r0dZaMAzS_C2bgvEPbipquTovp25xPfINSrBSRz-Ftq7skP4SqoCF-u9fRY9gIcKzy94hvxg3H06PsPQ8bgBf5hheXg8YEGK0WMirfs6uEovcJ1pAT1dPNfKIXsEqRQdjJnjHO-Aq6Wou7uVdISUKGgALbLprKhFEw";
+            "eyJraWQiOiJhcGkuc3VuYXQuZ29iLnBlLmtpZDAwMSIsInR5cCI6IkpXVCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyMDYxMDAxMjAzNiIsImF1ZCI6Ilt7XCJhcGlcIjpcImh0dHBzOlwvXC9hcGktY3BlLnN1bmF0LmdvYi5wZVwiLFwicmVjdXJzb1wiOlt7XCJpZFwiOlwiXC92MVwvY29udHJpYnV5ZW50ZVwvZ2VtXCIsXCJpbmRpY2Fkb3JcIjpcIjFcIixcImd0XCI6XCIxMDAwMDBcIn1dfV0iLCJ1c2VyZGF0YSI6eyJudW1SVUMiOiIyMDYxMDAxMjAzNiIsInRpY2tldCI6IjEzMzE4MDI1MTM4OCIsIm5yb1JlZ2lzdHJvIjoiIiwiYXBlTWF0ZXJubyI6IiIsImxvZ2luIjoiMjA2MTAwMTIwMzZESU1BQkVSMSIsIm5vbWJyZUNvbXBsZXRvIjoiR1JVUE8gRElNQUJFUiBTLkEuQy4iLCJub21icmVzIjoiR1JVUE8gRElNQUJFUiBTLkEuQy4iLCJjb2REZXBlbmQiOiIwMDUzIiwiY29kVE9wZUNvbWVyIjoiIiwiY29kQ2F0ZSI6IiIsIm5pdmVsVU8iOjAsImNvZFVPIjoiIiwiY29ycmVvIjoiIiwidXN1YXJpb1NPTCI6IkRJTUFCRVIxIiwiaWQiOiIiLCJkZXNVTyI6IiIsImRlc0NhdGUiOiIiLCJhcGVQYXRlcm5vIjoiIiwiaWRDZWx1bGFyIjpudWxsLCJtYXAiOnsiaXNDbG9uIjpmYWxzZSwiZGRwRGF0YSI6eyJkZHBfbnVtcnVjIjoiMjA2MTAwMTIwMzYiLCJkZHBfbnVtcmVnIjoiMDA1MyIsImRkcF9lc3RhZG8iOiIwMCIsImRkcF9mbGFnMjIiOiIwMCIsImRkcF91YmlnZW8iOiIwNDA3MDIiLCJkZHBfdGFtYW5vIjoiMDMiLCJkZHBfdHBvZW1wIjoiMzkiLCJkZHBfY2lpdSI6IjUxNDMwIn0sImlkTWVudSI6IjEzMzE4MDI1MTM4OCIsImpuZGlQb29sIjoicDAwNTMiLCJ0aXBVc3VhcmlvIjoiMSIsInRpcE9yaWdlbiI6IklUIiwicHJpbWVyQWNjZXNvIjp0cnVlfX0sIm5iZiI6MTY3NTM3ODk3MSwiY2xpZW50SWQiOiIyYTk2YTA1YS01ZjFlLTQwZGYtOTIxNi02ZmQzOGUyMzBiMDMiLCJpc3MiOiJodHRwczpcL1wvYXBpLXNlZ3VyaWRhZC5zdW5hdC5nb2IucGVcL3YxXC9jbGllbnRlc3NvbFwvMmE5NmEwNWEtNWYxZS00MGRmLTkyMTYtNmZkMzhlMjMwYjAzXC9vYXV0aDJcL3Rva2VuXC8iLCJleHAiOjE2NzUzODI1NzEsImdyYW50VHlwZSI6InBhc3N3b3JkIiwiaWF0IjoxNjc1Mzc4OTcxfQ.DGcB673iDwAQ164aMHfGli8ab9Y7uxRSleXtnl3rGNGEx3pw-CQEGQj2wGNLuMCIbdreNldoGg4TyNJhdyHgC0heoRSqaFqaeOgsH9aYutt64hpt6ZFKQ5i2w0An0OrXa_V1tUWwCyPV-Z2iV54aw3DUFrIfK7JRN5gPRLC_4cnlCmt3BdQkXuqDvbec33twcfzZpLAVAknjFBRkxPuNTPDe-7TjyyUDngKUUrT-VM6ZIuS_ZivQssgmPuWfQXyr3edOJn4eq0tJVfnLtM0fwuil3Ss9BB_STsG4XHn93y5eeho-UJwB1zgYWYTm7t4LKV-WoGxBxz101Y0VsWm6-Q";
 
 
 
@@ -62,10 +62,10 @@ namespace OpenInvoicePeru.ClienteConsola
         {
             return new Compania
             {
-                NroDocumento = "20559170608",
+                NroDocumento = "20610012036",
                 TipoDocumento = "6",
-                NombreComercial = "TU CEL GROUP",
-                NombreLegal = "TU CEL GROUP",
+                NombreComercial = "DIMABER S.A.C",
+                NombreLegal = "DIMABER S.A.C",
                 CodigoAnexo = "0000"
             };
         }
@@ -224,7 +224,7 @@ namespace OpenInvoicePeru.ClienteConsola
                 Console.ReadLine();
             }
         }
-        
+
         private static void CrearFacturaDetraccion()
         {
             try
@@ -554,7 +554,7 @@ namespace OpenInvoicePeru.ClienteConsola
                 Console.ReadLine();
             }
         }
-        
+
         private static void CrearFacturaGratuitaConDscto()
         {
             try
@@ -1047,7 +1047,7 @@ namespace OpenInvoicePeru.ClienteConsola
                             MontoCuota = 90,
                             FechaCredito = DateTime.Today.AddDays(30).ToString(FormatoFecha),
                         },
-                      
+
                     },
 
                     Items = new List<DetalleDocumento>
@@ -1067,7 +1067,7 @@ namespace OpenInvoicePeru.ClienteConsola
                             TipoImpuesto = "21",
                             TotalVenta = 0m
                         }
-                      
+
                     },
                     Relacionados = new List<DocumentoRelacionado>
                     {
@@ -1182,7 +1182,7 @@ namespace OpenInvoicePeru.ClienteConsola
                 Console.ReadLine();
             }
         }
-        
+
         private static void CrearNotaDebitoPorPenalidad()
         {
             try
@@ -1529,7 +1529,7 @@ namespace OpenInvoicePeru.ClienteConsola
                 Console.WriteLine("Ejemplo de Guia de Remisión");
                 var guia = new GuiaRemision
                 {
-                    IdDocumento = "T000-00000025",
+                    IdDocumento = "T000-00000006",
                     FechaEmision = DateTime.Today.ToString(FormatoFecha),
                     HoraEmision = DateTime.Now.ToString("HH:mm:ss"),
                     TipoDocumento = "09",
@@ -1537,12 +1537,12 @@ namespace OpenInvoicePeru.ClienteConsola
                     Remitente = CrearEmisor(),
                     Destinatario = new Contribuyente
                     {
-                        NroDocumento = "20455550115",
+                        NroDocumento = "10432639687",
                         TipoDocumento = "6",
-                        NombreLegal = "CORP TEG SAC",
+                        NombreLegal = "CARLOS ERNESTO ILLACUTIPA ESPINOZA",
                     },
                     ShipmentId = "001",
-                    CodigoMotivoTraslado = "13",
+                    CodigoMotivoTraslado = "02",
                     DescripcionMotivo = "OTRO OTRO",
                     Transbordo = false,
                     PesoBrutoTotal = 50,
@@ -1557,6 +1557,12 @@ namespace OpenInvoicePeru.ClienteConsola
                     NroDocumentoConductor = "41075490",
                     NombreConductor = "CHOFER CARLOS",
                     NroLicenciaConductor = "H41075490",
+                    DocumentoRelacionado = new DocumentoRelacionado
+                    {
+                        TipoDocumento = "01",
+                        NroDocumento = "F001-123",
+                        RucEmisorDocumentoRelaciondo = "20610012036"
+                    },
                     DireccionPartida = new Direccion
                     {
                         Ubigeo = "150101",
@@ -1568,6 +1574,7 @@ namespace OpenInvoicePeru.ClienteConsola
                         DireccionCompleta = "AV ITALIA 555"
                     },
                     CodigoPuerto = string.Empty,
+
                     BienesATransportar = new List<DetalleGuia>()
                 {
                     new DetalleGuia
@@ -1579,7 +1586,8 @@ namespace OpenInvoicePeru.ClienteConsola
                         Cantidad = 4,
                         LineaReferencia = 1
                     }
-                }
+                },
+
                 };
 
                 Console.WriteLine("Generando XML....");
@@ -1591,13 +1599,23 @@ namespace OpenInvoicePeru.ClienteConsola
                     throw new InvalidOperationException(documentoResponse.MensajeError);
                 }
 
+
+
+                var json = JsonConvert.SerializeObject(guia, Formatting.Indented, new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore
+                });
+
+                File.WriteAllText($"{guia.IdDocumento}.json", json);
+
+
                 Console.WriteLine("Firmando XML...");
                 // Firmado del Documento.
                 var firmado = new FirmadoRequest
                 {
                     TramaXmlSinFirma = documentoResponse.TramaXmlSinFirma,
                     CertificadoDigital = Convert.ToBase64String(File.ReadAllBytes("certificado.pfx")),
-                    PasswordCertificado = "TuC3lC3rTPfx1",
+                    PasswordCertificado = "nEu9YayAtTAyrMVcu",
                 };
 
                 var responseFirma = RestHelper<FirmadoRequest, FirmadoResponse>.Execute("Firmar", firmado);
@@ -1607,15 +1625,15 @@ namespace OpenInvoicePeru.ClienteConsola
                     throw new InvalidOperationException(responseFirma.MensajeError);
                 }
 
-                File.WriteAllBytes("20559170608-09-"+guia.IdDocumento+".xml", Convert.FromBase64String(responseFirma.TramaXmlFirmado));
+                File.WriteAllBytes("20559170608-09-" + guia.IdDocumento + ".xml", Convert.FromBase64String(responseFirma.TramaXmlFirmado));
 
                 Console.WriteLine("Enviando a SUNAT....");
 
                 var documentoRequest = new EnviarDocumentoRequest
                 {
                     Ruc = guia.Remitente.NroDocumento,
-                    UsuarioSol = "TUCELFE1",
-                    ClaveSol = "CommonApp1",
+                    UsuarioSol = "DIMABER1",
+                    ClaveSol = "GaTeUeGo1",
                     EndPointUrl = UrlSunatRest,
                     IdDocumento = guia.IdDocumento,
                     TipoDocumento = guia.TipoDocumento,
@@ -1624,7 +1642,7 @@ namespace OpenInvoicePeru.ClienteConsola
                 };
 
                 var enviarDocumentoResponse = RestHelper<EnviarDocumentoRequest, EnviarResumenResponse>.Execute("EnviarDocumentoRest", documentoRequest);
-                
+
 
                 if (!enviarDocumentoResponse.Exito)
                 {

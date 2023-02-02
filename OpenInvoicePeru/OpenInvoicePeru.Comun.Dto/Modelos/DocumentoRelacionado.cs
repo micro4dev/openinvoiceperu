@@ -12,5 +12,7 @@ namespace OpenInvoicePeru.Comun.Dto.Modelos
 
         [JsonProperty(Order = 3, Required = Required.AllowNull)]
         public string DescripcionTipoDocumento { get; set; }
+        [JsonProperty(Order = 4, Required = Required.AllowNull)]
+        public string RucEmisorDocumentoRelaciondo { get; set; }
     }
 }

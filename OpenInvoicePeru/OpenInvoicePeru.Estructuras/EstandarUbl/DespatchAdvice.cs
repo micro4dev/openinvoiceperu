@@ -163,8 +163,28 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
                 {
                     writer.WriteElementString("cbc:ID", AdditionalDocumentReference.Id);
                     writer.WriteElementString("cbc:DocumentTypeCode", AdditionalDocumentReference.DocumentTypeCode);
+                    //writer.WriteEndElement();
+
+                    writer.WriteStartElement("cac:IssuerParty");
+                    {
+                        writer.WriteStartElement("cac:PartyIdentification");
+                        {
+                            writer.WriteStartElement("cbc:ID");
+                            {
+                                writer.WriteAttributeString("schemeID", "6");
+                                writer.WriteAttributeString("schemeName", ValoresUbl.CompanySchemeName);
+                                writer.WriteAttributeString("schemeAgencyName", ValoresUbl.SchemeAgencyName);
+                                writer.WriteAttributeString("schemeURI", ValoresUbl.CompanySchemeUri);
+                                writer.WriteValue(AdditionalDocumentReference.IssuerPartyIdentification);
+                            }
+                            writer.WriteEndElement();
+                        }
+                        writer.WriteEndElement();
+                    }
+                    writer.WriteEndElement();
                 }
                 writer.WriteEndElement();
+
             }
 
             #endregion AdditionalDocumentReference

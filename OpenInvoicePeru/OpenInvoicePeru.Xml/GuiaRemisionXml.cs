@@ -95,7 +95,8 @@ namespace OpenInvoicePeru.Xml
                 despatchAdvice.AdditionalDocumentReference = new InvoiceDocumentReference
                 {
                     Id = documento.DocumentoRelacionado.NroDocumento,
-                    DocumentTypeCode = documento.DocumentoRelacionado.TipoDocumento
+                    DocumentTypeCode = documento.DocumentoRelacionado.TipoDocumento,
+                    IssuerPartyIdentification = documento.DocumentoRelacionado.RucEmisorDocumentoRelaciondo
                 };
             }
 

@@ -9,6 +9,7 @@ namespace OpenInvoicePeru.Estructuras.CommonAggregateComponents
 
         public string DocumentTypeCode { get; set; }
         public string DocumentTypeDescription { get; set; }
+        public string IssuerPartyIdentification { get; set; }
 
         public InvoiceDocumentReference()
         {
