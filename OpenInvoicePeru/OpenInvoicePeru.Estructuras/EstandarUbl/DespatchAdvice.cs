@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using OpenInvoicePeru.Comun;
@@ -162,7 +163,19 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
                 writer.WriteStartElement("cac:AdditionalDocumentReference");
                 {
                     writer.WriteElementString("cbc:ID", AdditionalDocumentReference.Id);
-                    writer.WriteElementString("cbc:DocumentTypeCode", AdditionalDocumentReference.DocumentTypeCode);
+
+                    writer.WriteStartElement("cbc:DocumentTypeCode");
+                    {
+                        writer.WriteAttributeString("listAgencyName", ValoresUbl.SchemeAgencyName);
+                        writer.WriteAttributeString("listName", ValoresUbl.AdditionalDocumentReferenceDespatchAdvice);
+                        writer.WriteAttributeString("listURI", ValoresUbl.AdditionalDocumentReferenceListUri);
+                        writer.WriteValue(AdditionalDocumentReference.DocumentTypeCode);
+                    }
+                    writer.WriteEndElement();
+
+                    writer.WriteElementString("cbc:DocumentType", AdditionalDocumentReference.DocumentTypeDescription);
+
+                    //writer.WriteElementString("cbc:DocumentTypeCode", AdditionalDocumentReference.DocumentTypeCode);
                     //writer.WriteEndElement();
 
                     writer.WriteStartElement("cac:IssuerParty");
@@ -172,8 +185,8 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
                             writer.WriteStartElement("cbc:ID");
                             {
                                 writer.WriteAttributeString("schemeID", "6");
-                                writer.WriteAttributeString("schemeName", ValoresUbl.CompanySchemeName);
                                 writer.WriteAttributeString("schemeAgencyName", ValoresUbl.SchemeAgencyName);
+                                writer.WriteAttributeString("schemeName", ValoresUbl.CompanySchemeName);
                                 writer.WriteAttributeString("schemeURI", ValoresUbl.CompanySchemeUri);
                                 writer.WriteValue(AdditionalDocumentReference.IssuerPartyIdentification);
                             }
@@ -321,15 +334,38 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
             {
                 writer.WriteStartElement("cac:SellerSupplierParty");
                 {
-                    writer.WriteStartElement("cbc:CustomerAssignedAccountID");
-                    {
-                        writer.WriteAttributeString("schemeID", SellerSupplierParty.AdditionalAccountId);
-                        writer.WriteValue(SellerSupplierParty.CustomerAssignedAccountId);
-                    }
-                    writer.WriteEndElement();
+                    //writer.WriteStartElement("cbc:CustomerAssignedAccountID");
+                    //{
+                    //    writer.WriteAttributeString("schemeID", SellerSupplierParty.AdditionalAccountId);
+                    //    writer.WriteValue(SellerSupplierParty.CustomerAssignedAccountId);
+                    //}
+                    //writer.WriteEndElement();
 
+                    //writer.WriteStartElement("cac:Party");
+                    //{
+                    //    writer.WriteStartElement("cac:PartyLegalEntity");
+                    //    {
+                    //        writer.WriteElementString("cbc:RegistrationName", SellerSupplierParty.Party.PartyLegalEntity.RegistrationName);
+                    //    }
+                    //    writer.WriteEndElement();
+                    //}
+                    //writer.WriteEndElement();
                     writer.WriteStartElement("cac:Party");
                     {
+                        writer.WriteStartElement("cac:PartyIdentification");
+                        {
+                            writer.WriteStartElement("cbc:ID");
+                            {
+                                writer.WriteAttributeString("schemeID", SellerSupplierParty.AdditionalAccountId);
+                                writer.WriteAttributeString("schemeName", ValoresUbl.CompanySchemeName);
+                                writer.WriteAttributeString("schemeAgencyName", ValoresUbl.SchemeAgencyName);
+                                writer.WriteAttributeString("schemeURI", ValoresUbl.CompanySchemeUri);
+                                writer.WriteValue(SellerSupplierParty.CustomerAssignedAccountId);
+                            }
+                            writer.WriteEndElement();
+                        }
+                        writer.WriteEndElement();
+
                         writer.WriteStartElement("cac:PartyLegalEntity");
                         {
                             writer.WriteElementString("cbc:RegistrationName", SellerSupplierParty.Party.PartyLegalEntity.RegistrationName);
@@ -337,6 +373,7 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
                         writer.WriteEndElement();
                     }
                     writer.WriteEndElement();
+
                 }
                 writer.WriteEndElement();
             }
@@ -523,14 +560,25 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
                         {
                             writer.WriteAttributeString("schemeAgencyName", ValoresUbl.SchemeAgencyNameInei);
                             writer.WriteAttributeString("schemeName", "Ubigeos");
-                            writer.WriteValue(Shipment.OriginAddress.Id);
+                            writer.WriteValue(Shipment.DeliveryAddress.Id);
                         }
                         writer.WriteEndElement();
-
-
+                        //Anexo origen
+                        if (Shipment.HandlingCode.Equals("04"))
+                        {
+                            
+                            writer.WriteStartElement("cbc:AddressTypeCode");
+                            {
+                                writer.WriteAttributeString("listID", DeliveryCustomerParty.CustomerAssignedAccountId);
+                                writer.WriteValue(Shipment.DeliveryAddress.EstablishmentCode);
+                            }
+                            writer.WriteEndElement();
+                            
+                        }
+                        //
                         writer.WriteStartElement("cac:AddressLine");
                         {
-                            writer.WriteElementString("cbc:Line", Shipment.OriginAddress.StreetName);
+                            writer.WriteElementString("cbc:Line", Shipment.DeliveryAddress.StreetName);
                         }
                         writer.WriteEndElement();
 
@@ -547,14 +595,28 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
                             {
                                 writer.WriteAttributeString("schemeAgencyName", ValoresUbl.SchemeAgencyNameInei);
                                 writer.WriteAttributeString("schemeName", "Ubigeos");
-                                writer.WriteValue(Shipment.DeliveryAddress.Id);
+                                writer.WriteValue(Shipment.OriginAddress.Id);
                             }
                             writer.WriteEndElement();
+
+                            //Anexo origen
+                            if (Shipment.HandlingCode.Equals("04"))
+                            {
+
+                                writer.WriteStartElement("cbc:AddressTypeCode");
+                                {
+                                    writer.WriteAttributeString("listID", DespatchSupplierParty.CustomerAssignedAccountId);
+                                    writer.WriteValue(Shipment.OriginAddress.EstablishmentCode);
+                                }
+                                writer.WriteEndElement();
+
+                            }
+                            //
 
 
                             writer.WriteStartElement("cac:AddressLine");
                             {
-                                writer.WriteElementString("cbc:Line", Shipment.DeliveryAddress.StreetName);
+                                writer.WriteElementString("cbc:Line", Shipment.OriginAddress.StreetName);
                             }
                             writer.WriteEndElement();
 

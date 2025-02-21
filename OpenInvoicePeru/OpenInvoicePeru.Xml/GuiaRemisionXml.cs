@@ -96,7 +96,8 @@ namespace OpenInvoicePeru.Xml
                 {
                     Id = documento.DocumentoRelacionado.NroDocumento,
                     DocumentTypeCode = documento.DocumentoRelacionado.TipoDocumento,
-                    IssuerPartyIdentification = documento.DocumentoRelacionado.RucEmisorDocumentoRelaciondo
+                    IssuerPartyIdentification = documento.DocumentoRelacionado.RucEmisorDocumentoRelaciondo,
+                    DocumentTypeDescription = documento.DocumentoRelacionado.DescripcionTipoDocumento
                 };
             }
 
@@ -178,12 +179,15 @@ namespace OpenInvoicePeru.Xml
                 DeliveryAddress = new PostalAddress
                 {
                     Id = documento.DireccionLlegada.Ubigeo,
-                    StreetName = documento.DireccionLlegada.DireccionCompleta
+                    StreetName = documento.DireccionLlegada.DireccionCompleta,
+                    EstablishmentCode = documento.DireccionLlegada.CodigoAnexo
                 },
                 OriginAddress = new PostalAddress
                 {
                     Id = documento.DireccionPartida.Ubigeo,
-                    StreetName = documento.DireccionPartida.DireccionCompleta
+                    StreetName = documento.DireccionPartida.DireccionCompleta,
+                    EstablishmentCode = documento.DireccionPartida.CodigoAnexo
+
                 },
                 TransportHandlingUnit = new TransportHandlingUnit
                 {

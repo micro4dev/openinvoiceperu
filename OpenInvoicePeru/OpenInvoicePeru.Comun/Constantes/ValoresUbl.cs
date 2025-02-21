@@ -40,6 +40,8 @@
         public const string ReasonForTransferUri = "Motivo de traslado";
         public const string TransportModeCode = "Modalidad de traslado";
         public const string TransportModeCodeListUri = "urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo18";
+        public const string AdditionalDocumentReferenceListUri = "urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo61";
+        public const string AdditionalDocumentReferenceDespatchAdvice = "Documento relacionado al transporte";
 
 
 

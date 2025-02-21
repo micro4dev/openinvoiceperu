@@ -85,6 +85,19 @@ namespace OpenInvoicePeru.Xml
                         }
                     }
                 },
+                //RequestedMonetaryTotal = new LegalMonetaryTotal
+                //{
+                //    PayableAmount = new PayableAmount
+                //    {
+                //        CurrencyId = documento.Moneda,
+                //        Value = documento.TotalVenta
+                //    },
+                //    AllowanceTotalAmount = new PayableAmount
+                //    {
+                //        CurrencyId = documento.Moneda,
+                //        Value = documento.DescuentoGlobal
+                //    }
+                //},
                 RequestedMonetaryTotal = new LegalMonetaryTotal
                 {
                     PayableAmount = new PayableAmount
@@ -96,8 +109,24 @@ namespace OpenInvoicePeru.Xml
                     {
                         CurrencyId = documento.Moneda,
                         Value = documento.DescuentoGlobal
-                    }
+                    },
+                    TaxInclusiveAmount = new PayableAmount
+                    {
+                        CurrencyId = documento.Moneda,
+                        Value = documento.TaxInclusiveAmount > 0 ? documento.TaxInclusiveAmount : documento.TotalVenta
+                    },
+                    PrepaidAmount = new PayableAmount
+                    {
+                        CurrencyId = documento.Moneda,
+                        Value = documento.MontoTotalAnticipo
+                    },
+                    LineExtensionAmount = new PayableAmount
+                    {
+                        CurrencyId = documento.Moneda,
+                        Value = documento.LineExtensionAmount > 0 ? documento.LineExtensionAmount : 0
+                    },
                 },
+
                 TaxTotals = new List<TaxTotal>
                 {
                     new TaxTotal

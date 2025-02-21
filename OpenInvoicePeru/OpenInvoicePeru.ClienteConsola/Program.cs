@@ -16,8 +16,7 @@ namespace OpenInvoicePeru.ClienteConsola
         private const string UrlGuiaRemision = "https://e-beta.sunat.gob.pe/ol-ti-itemision-guia-gem-beta/billService";
         private const string UrlSunatRest = "https://api-cpe.sunat.gob.pe/v1/contribuyente/gem/comprobantes";
 
-        private const string TokenRest =
-            "eyJraWQiOiJhcGkuc3VuYXQuZ29iLnBlLmtpZDAwMSIsInR5cCI6IkpXVCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyMDYxMDAxMjAzNiIsImF1ZCI6Ilt7XCJhcGlcIjpcImh0dHBzOlwvXC9hcGktY3BlLnN1bmF0LmdvYi5wZVwiLFwicmVjdXJzb1wiOlt7XCJpZFwiOlwiXC92MVwvY29udHJpYnV5ZW50ZVwvZ2VtXCIsXCJpbmRpY2Fkb3JcIjpcIjFcIixcImd0XCI6XCIxMDAwMDBcIn1dfV0iLCJ1c2VyZGF0YSI6eyJudW1SVUMiOiIyMDYxMDAxMjAzNiIsInRpY2tldCI6IjEzMzE4MDI1MTM4OCIsIm5yb1JlZ2lzdHJvIjoiIiwiYXBlTWF0ZXJubyI6IiIsImxvZ2luIjoiMjA2MTAwMTIwMzZESU1BQkVSMSIsIm5vbWJyZUNvbXBsZXRvIjoiR1JVUE8gRElNQUJFUiBTLkEuQy4iLCJub21icmVzIjoiR1JVUE8gRElNQUJFUiBTLkEuQy4iLCJjb2REZXBlbmQiOiIwMDUzIiwiY29kVE9wZUNvbWVyIjoiIiwiY29kQ2F0ZSI6IiIsIm5pdmVsVU8iOjAsImNvZFVPIjoiIiwiY29ycmVvIjoiIiwidXN1YXJpb1NPTCI6IkRJTUFCRVIxIiwiaWQiOiIiLCJkZXNVTyI6IiIsImRlc0NhdGUiOiIiLCJhcGVQYXRlcm5vIjoiIiwiaWRDZWx1bGFyIjpudWxsLCJtYXAiOnsiaXNDbG9uIjpmYWxzZSwiZGRwRGF0YSI6eyJkZHBfbnVtcnVjIjoiMjA2MTAwMTIwMzYiLCJkZHBfbnVtcmVnIjoiMDA1MyIsImRkcF9lc3RhZG8iOiIwMCIsImRkcF9mbGFnMjIiOiIwMCIsImRkcF91YmlnZW8iOiIwNDA3MDIiLCJkZHBfdGFtYW5vIjoiMDMiLCJkZHBfdHBvZW1wIjoiMzkiLCJkZHBfY2lpdSI6IjUxNDMwIn0sImlkTWVudSI6IjEzMzE4MDI1MTM4OCIsImpuZGlQb29sIjoicDAwNTMiLCJ0aXBVc3VhcmlvIjoiMSIsInRpcE9yaWdlbiI6IklUIiwicHJpbWVyQWNjZXNvIjp0cnVlfX0sIm5iZiI6MTY3NTM3ODk3MSwiY2xpZW50SWQiOiIyYTk2YTA1YS01ZjFlLTQwZGYtOTIxNi02ZmQzOGUyMzBiMDMiLCJpc3MiOiJodHRwczpcL1wvYXBpLXNlZ3VyaWRhZC5zdW5hdC5nb2IucGVcL3YxXC9jbGllbnRlc3NvbFwvMmE5NmEwNWEtNWYxZS00MGRmLTkyMTYtNmZkMzhlMjMwYjAzXC9vYXV0aDJcL3Rva2VuXC8iLCJleHAiOjE2NzUzODI1NzEsImdyYW50VHlwZSI6InBhc3N3b3JkIiwiaWF0IjoxNjc1Mzc4OTcxfQ.DGcB673iDwAQ164aMHfGli8ab9Y7uxRSleXtnl3rGNGEx3pw-CQEGQj2wGNLuMCIbdreNldoGg4TyNJhdyHgC0heoRSqaFqaeOgsH9aYutt64hpt6ZFKQ5i2w0An0OrXa_V1tUWwCyPV-Z2iV54aw3DUFrIfK7JRN5gPRLC_4cnlCmt3BdQkXuqDvbec33twcfzZpLAVAknjFBRkxPuNTPDe-7TjyyUDngKUUrT-VM6ZIuS_ZivQssgmPuWfQXyr3edOJn4eq0tJVfnLtM0fwuil3Ss9BB_STsG4XHn93y5eeho-UJwB1zgYWYTm7t4LKV-WoGxBxz101Y0VsWm6-Q";
+        private const string TokenRest = "eyJraWQiOiJhcGkuc3VuYXQuZ29iLnBlLmtpZDAwMSIsInR5cCI6IkpXVCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyMDYxMDAxMjAzNiIsImF1ZCI6Ilt7XCJhcGlcIjpcImh0dHBzOlwvXC9hcGktY3BlLnN1bmF0LmdvYi5wZVwiLFwicmVjdXJzb1wiOlt7XCJpZFwiOlwiXC92MVwvY29udHJpYnV5ZW50ZVwvZ2VtXCIsXCJpbmRpY2Fkb3JcIjpcIjFcIixcImd0XCI6XCIxMDAwMDBcIn1dfV0iLCJ1c2VyZGF0YSI6eyJudW1SVUMiOiIyMDYxMDAxMjAzNiIsInRpY2tldCI6IjE3MTc0NDI1NDM5IiwibnJvUmVnaXN0cm8iOiIiLCJhcGVNYXRlcm5vIjoiIiwibG9naW4iOiIyMDYxMDAxMjAzNkRJTUFCRVIxIiwibm9tYnJlQ29tcGxldG8iOiJHUlVQTyBESU1BQkVSIFMuQS5DLiIsIm5vbWJyZXMiOiJHUlVQTyBESU1BQkVSIFMuQS5DLiIsImNvZERlcGVuZCI6IjAwNTMiLCJjb2RUT3BlQ29tZXIiOiIiLCJjb2RDYXRlIjoiIiwibml2ZWxVTyI6MCwiY29kVU8iOiIiLCJjb3JyZW8iOiIiLCJ1c3VhcmlvU09MIjoiRElNQUJFUjEiLCJpZCI6IiIsImRlc1VPIjoiIiwiZGVzQ2F0ZSI6IiIsImFwZVBhdGVybm8iOiIiLCJpZENlbHVsYXIiOm51bGwsIm1hcCI6eyJpc0Nsb24iOmZhbHNlLCJkZHBEYXRhIjp7ImRkcF9udW1ydWMiOiIyMDYxMDAxMjAzNiIsImRkcF9udW1yZWciOiIwMDUzIiwiZGRwX2VzdGFkbyI6IjAwIiwiZGRwX2ZsYWcyMiI6IjAwIiwiZGRwX3ViaWdlbyI6IjA0MDcwMiIsImRkcF90YW1hbm8iOiIwMyIsImRkcF90cG9lbXAiOiIzOSIsImRkcF9jaWl1IjoiNTE0MzAifSwiaWRNZW51IjoiMTcxNzQ0MjU0MzkiLCJqbmRpUG9vbCI6InAwMDUzIiwidGlwVXN1YXJpbyI6IjEiLCJ0aXBPcmlnZW4iOiJJVCIsInByaW1lckFjY2VzbyI6dHJ1ZX19LCJuYmYiOjE3MDQ2Njc0NjUsImNsaWVudElkIjoiMmE5NmEwNWEtNWYxZS00MGRmLTkyMTYtNmZkMzhlMjMwYjAzIiwiaXNzIjoiaHR0cHM6XC9cL2FwaS1zZWd1cmlkYWQuc3VuYXQuZ29iLnBlXC92MVwvY2xpZW50ZXNzb2xcLzJhOTZhMDVhLTVmMWUtNDBkZi05MjE2LTZmZDM4ZTIzMGIwM1wvb2F1dGgyXC90b2tlblwvIiwiZXhwIjoxNzA0NjcxMDY1LCJncmFudFR5cGUiOiJwYXNzd29yZCIsImlhdCI6MTcwNDY2NzQ2NX0.URlHvSdULuf-PbkUwGptf0ahxZb03q7sO8ZkyA8RZDcLi6lB5S3HJ7E5fbucLmuByCaxazwTbygkUtpE2HLMHT0xCas74sbzoITJg3ap-EkD3M7pE-aNHvVOjyq9qojvW2VE7pSHYps8_r5QoD62HBKfaNA4XSVeajhGrHDSPBw9VYPgFk1MIG4SROhIkW8hlXXJkMR5llmz8jCueTXW622vdU_mAI91109s1S8xK0jjy5uMfpf74tAbNWfU60P5TsuhCwwBiQCeuCF7L0Lyf-wt3eXJqzmkw1IuRSy8GuyDfJzp5WSYqbe2QJ7uwc0wLXixV-xwkEWWgc8ZF36csw";
 
 
 
@@ -29,6 +28,9 @@ namespace OpenInvoicePeru.ClienteConsola
             //CrearFacturaAlCredito();
             //CrearFacturaConMuchosDecimales();
             //CrearFacturaAlContado();
+
+            //CrearFacturaAlContadocertificadoPropio();
+
 
             //CrearFacturaDetraccion();
 
@@ -45,6 +47,7 @@ namespace OpenInvoicePeru.ClienteConsola
 
             //CrearNotaDebito();
             //CrearNotaDebitoPorPenalidad();
+            //CrearNotaDebitoExonerado();
 
             //CrearNotaCreditoConMontosGratuitos();
 
@@ -52,9 +55,11 @@ namespace OpenInvoicePeru.ClienteConsola
 
             //CrearFacturaGratuitaConDscto();
 
-            CrearGuiaRemisionTransportePrivado();
+            //CrearGuiaRemisionTransportePrivado();
             //CrearGuiaRemisionTransportePublico();
-
+            //CrearGuiaRemisionTransferenciaEntreAlmacenes();
+            //CrearGuiaRemisionTransferenciaEntreAlmacenes();
+            CrearGuiaRemisionCompra();
             Console.ReadLine();
         }
 
@@ -68,6 +73,14 @@ namespace OpenInvoicePeru.ClienteConsola
                 NombreLegal = "DIMABER S.A.C",
                 CodigoAnexo = "0000"
             };
+            //return new Compania
+            //{
+            //    NroDocumento = "20559170608",
+            //    TipoDocumento = "6",
+            //    NombreComercial = "TUCEL GROUP S.A.C.",
+            //    NombreLegal = "TUCEL GROUP S.A.C.",
+            //    CodigoAnexo = "0000"
+            //};
         }
 
         private static void CrearFacturaAlCredito()
@@ -180,6 +193,77 @@ namespace OpenInvoicePeru.ClienteConsola
                     Gravadas = 62.50m,
                     LineExtensionAmount = 62.50m,
                     TaxInclusiveAmount = 73.75m,
+                    NroOrdenCompra = "78987898",
+                    Items = new List<DetalleDocumento>
+                    {
+                        new DetalleDocumento
+                        {
+                            Id = 1,
+                            Cantidad = 2,
+                            PrecioReferencial = 23.60m,
+                            PrecioUnitario = 20m,
+                            TipoPrecio = "01",
+                            CodigoItem = "1234234",
+                            Descripcion = "Item 1",
+                            UnidadMedida = "ZZ",
+                            Impuesto = 7.20m, // 
+                            TipoImpuesto = "10", // Gravada
+                            TotalVenta = 40m,
+                        },
+                        new DetalleDocumento
+                        {
+                            Id = 2,
+                            Cantidad = 5,
+                            PrecioReferencial = 5.31m,
+                            PrecioUnitario = 4.5m,
+                            TipoPrecio = "01",
+                            CodigoItem = "AER345667",
+                            Descripcion = "Item 2",
+                            UnidadMedida = "ZZ",
+                            Impuesto = 4.05m,
+                            TipoImpuesto = "10", // Gravada
+                            TotalVenta = 22.50m,
+                        }
+                    }
+                };
+
+                FirmaryEnviar(documento, GenerarDocumento(documento));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.ReadLine();
+            }
+        }
+        private static void CrearFacturaAlContadocertificadoPropio()
+        {
+            try
+            {
+                Console.WriteLine("Ejemplo Factura Al Contado (FXC1-00001010)");
+                var documento = new DocumentoElectronico
+                {
+                    Emisor = CrearEmisor(),
+                    Receptor = new Compania
+                    {
+                        NroDocumento = "20100121809",
+                        TipoDocumento = "6",
+                        NombreLegal = "ADMINISTRADORA CLINICA RICARDO PALMA S.A."
+                    },
+                    IdDocumento = "FXC1-00001010",
+                    FechaEmision = DateTime.Today.ToString(FormatoFecha),
+                    HoraEmision = "12:00:00", //DateTime.Now.ToString("HH:mm:ss"),
+                    Moneda = "PEN",
+                    TipoDocumento = "01",
+                    Credito = false,
+                    TotalIgv = 11.25m,
+                    TotalVenta = 73.75m,
+                    Gravadas = 62.50m,
+                    LineExtensionAmount = 62.50m,
+                    TaxInclusiveAmount = 73.75m,
+                    NroOrdenCompra = "002-3510",
                     Items = new List<DetalleDocumento>
                     {
                         new DetalleDocumento
@@ -242,7 +326,7 @@ namespace OpenInvoicePeru.ClienteConsola
                     IdDocumento = "FXC1-00001011",
                     FechaEmision = DateTime.Today.ToString(FormatoFecha),
                     HoraEmision = "12:00:00", //DateTime.Now.ToString("HH:mm:ss"),
-                    Moneda = "PEN",
+                    Moneda = "USD",
                     TipoDocumento = "01",
                     TipoOperacion = "1001",
                     Credito = false,
@@ -1258,6 +1342,82 @@ namespace OpenInvoicePeru.ClienteConsola
             }
         }
 
+        private static void CrearNotaDebitoExonerado()
+        {
+            try
+            {
+                Console.WriteLine("Ejemplo Nota de Débito Exonerada de Factura (FD11-001)");
+                var documento = new DocumentoElectronico
+                {
+                    Emisor = CrearEmisor(),
+                    Receptor = new Compania
+                    {
+                        NroDocumento = "20257471609",
+                        TipoDocumento = "6",
+                        NombreLegal = "FRAMEWORK PERU"
+                    },
+                    IdDocumento = "FD12-001",
+                    FechaEmision = DateTime.Today.ToString(FormatoFecha),
+                    HoraEmision = DateTime.Now.ToString("HH:mm:ss"),
+                    Moneda = "PEN",
+                    TipoDocumento = "08",
+                    TotalIgv = 0m,
+                    TotalVenta = 250m,
+                    Gravadas = 0m,
+                    Exoneradas = 250m,
+                    TasaImpuesto = 0.0m,
+                    LineExtensionAmount = 0m,
+                    TaxInclusiveAmount = 0m,
+
+                    Items = new List<DetalleDocumento>
+                    {
+                        new DetalleDocumento
+                        {
+                            Id = 1,
+                            Cantidad = 5,
+                            PrecioReferencial = 50m,
+                            PrecioUnitario = 50m,
+                            BaseImponible = 250,
+                            TipoPrecio = "01",
+                            CodigoItem = "1234234",
+                            Descripcion = "Item 1",
+                            UnidadMedida = "ZZ",
+                            Impuesto = 0m, // 
+                            TipoImpuesto = "21", // Exonerada
+                            TotalVenta = 250m,
+                        },
+                    },
+                    Discrepancias = new List<Discrepancia>
+                    {
+                        new Discrepancia
+                        {
+                            NroReferencia = "FF11-001",
+                            Tipo = "03",
+                            Descripcion = "Penalidad por falta de pago"
+                        }
+                    },
+                    Relacionados = new List<DocumentoRelacionado>
+                    {
+                        new DocumentoRelacionado
+                        {
+                            NroDocumento = "FF11-001",
+                            TipoDocumento = "01"
+                        }
+                    }
+                };
+
+                FirmaryEnviar(documento, GenerarDocumento(documento));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.ReadLine();
+            }
+        }
+
         private static void CrearResumenDiario()
         {
             try
@@ -1529,7 +1689,7 @@ namespace OpenInvoicePeru.ClienteConsola
                 Console.WriteLine("Ejemplo de Guia de Remisión");
                 var guia = new GuiaRemision
                 {
-                    IdDocumento = "T000-00000006",
+                    IdDocumento = "T000-00000007",
                     FechaEmision = DateTime.Today.ToString(FormatoFecha),
                     HoraEmision = DateTime.Now.ToString("HH:mm:ss"),
                     TipoDocumento = "09",
@@ -1798,6 +1958,289 @@ namespace OpenInvoicePeru.ClienteConsola
 
         }
 
+        private static void CrearGuiaRemisionTransferenciaEntreAlmacenes()
+        {
+            try
+            {
+                Console.WriteLine("Ejemplo de Guia de Remisión");
+                var guia = new GuiaRemision
+                {
+                    IdDocumento = "T111-00000001",
+                    FechaEmision = DateTime.Today.ToString(FormatoFecha),
+                    HoraEmision = DateTime.Now.ToString("HH:mm:ss"),
+                    TipoDocumento = "09",
+                    Glosa = "Guia de Prueba",
+                    Remitente = CrearEmisor(),
+                    Destinatario = new Contribuyente
+                    {
+                        NroDocumento = "20610012036",
+                        TipoDocumento = "6",
+                        NombreLegal = "DIMABER S.A.C",
+                    },
+                    ShipmentId = "001",
+                    CodigoMotivoTraslado = "04",
+                    DescripcionMotivo = "TRASLADO ENTRE ESTABLECIMIENTO DE UNA MISMA EMPRESA",
+                    Transbordo = false,
+                    PesoBrutoTotal = 50,
+                    NroPallets = 0,
+                    ModalidadTraslado = "01", //Publico
+                    FechaInicioTraslado = DateTime.Today.ToString(FormatoFecha),
+                    RucTransportista = "10432639687",
+                    RazonSocialTransportista = "TRANSPORTES S.A.C",
+                    NroMtc = "0001",
+                    NroPlacaVehiculo = "ABC123",
+                    NumeroContenedor = "ABI456",
+                    NroDocumentoConductor = "43263968",
+                    NombreConductor = "CHOFER CARLOS",
+                    NroLicenciaConductor = "43263968",
+                    DireccionPartida = new Direccion
+                    {
+                        Ubigeo = "150101",
+                        DireccionCompleta = "AV LIMA 455",
+                        CodigoAnexo = "0000"
+                    },
+                    DireccionLlegada = new Direccion
+                    {
+                        Ubigeo = "160101",
+                        DireccionCompleta = "AV ITALIA 555",
+                        CodigoAnexo = "0000"
+                    },
+                    CodigoPuerto = string.Empty,
+                    BienesATransportar = new List<DetalleGuia>()
+                {
+                    new DetalleGuia
+                    {
+                        Correlativo = 1,
+                        CodigoItem = "0001",
+                        Descripcion = "CHIP",
+                        UnidadMedida = "NIU",
+                        Cantidad = 4,
+                        LineaReferencia = 1
+                    }
+                }
+                };
+
+                Console.WriteLine("Generando XML....");
+
+                var documentoResponse = RestHelper<GuiaRemision, DocumentoResponse>.Execute("GenerarGuiaRemision", guia);
+
+                if (!documentoResponse.Exito)
+                {
+                    throw new InvalidOperationException(documentoResponse.MensajeError);
+                }
+
+                Console.WriteLine("Firmando XML...");
+                // Firmado del Documento.
+                var firmado = new FirmadoRequest
+                {
+                    TramaXmlSinFirma = documentoResponse.TramaXmlSinFirma,
+                    CertificadoDigital = Convert.ToBase64String(File.ReadAllBytes("certificado.pfx")),
+                    PasswordCertificado = "nEu9YayAtTAyrMVcu",
+                };
+
+                var responseFirma = RestHelper<FirmadoRequest, FirmadoResponse>.Execute("Firmar", firmado);
+
+                if (!responseFirma.Exito)
+                {
+                    throw new InvalidOperationException(responseFirma.MensajeError);
+                }
+
+                File.WriteAllBytes("20610012036-09-" + guia.IdDocumento + ".xml", Convert.FromBase64String(responseFirma.TramaXmlFirmado));
+
+                Console.WriteLine("Enviando a SUNAT....");
+
+                var documentoRequest = new EnviarDocumentoRequest
+                {
+                    Ruc = guia.Remitente.NroDocumento,
+                    UsuarioSol = "DIMABER1",
+                    ClaveSol = "GaTeUeGo1",
+                    EndPointUrl = UrlSunatRest,
+                    IdDocumento = guia.IdDocumento,
+                    TipoDocumento = guia.TipoDocumento,
+                    TramaXmlFirmado = responseFirma.TramaXmlFirmado,
+                    Token = TokenRest
+                };
+
+                var enviarDocumentoResponse = RestHelper<EnviarDocumentoRequest, EnviarResumenResponse>.Execute("EnviarDocumentoRest", documentoRequest);
+
+                if (!enviarDocumentoResponse.Exito)
+                {
+                    throw new InvalidOperationException(enviarDocumentoResponse.MensajeError);
+                }
+
+                //File.WriteAllBytes("GuaiRemisionCdr.zip", Convert.FromBase64String(enviarDocumentoResponse.TramaZipCdr));
+
+                //Console.WriteLine("Respuesta de SUNAT:");
+                //Console.WriteLine(enviarDocumentoResponse.MensajeRespuesta);
+
+                Console.WriteLine("Respuesta de SUNAT Ticket:");
+                Console.WriteLine(enviarDocumentoResponse.NroTicket);
+
+                ConsultarTicketRest(enviarDocumentoResponse.NroTicket, documentoRequest.Ruc);
+                Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.ReadLine();
+            }
+
+        }
+        private static void CrearGuiaRemisionCompra()
+        {
+            try
+            {
+                Console.WriteLine("Ejemplo de Guia de Remisión  de compra");
+                var guia = new GuiaRemision
+                {
+                    IdDocumento = "T000-00000069",
+                    FechaEmision = DateTime.Today.ToString(FormatoFecha),
+                    HoraEmision = DateTime.Now.ToString("HH:mm:ss"),
+                    TipoDocumento = "09",
+                    Glosa = "Guia de Prueba",
+                    Remitente = CrearEmisor(),
+                    Destinatario = new Contribuyente
+                    {
+                        NroDocumento = "20610012036",
+                        TipoDocumento = "6",
+                        NombreLegal = "DIMABER S.A.C",
+                    },
+                    Tercero = new Contribuyente()
+                    {
+                        NroDocumento = "10432639687",
+                        TipoDocumento = "6",
+                        NombreLegal = "CARLOS ERNESTO",
+                    },
+                    ShipmentId = "001",
+                    CodigoMotivoTraslado = "02",
+                    DescripcionMotivo = "COMPRA",
+                    Transbordo = false,
+                    PesoBrutoTotal = 50,
+                    NroPallets = 0,
+                    ModalidadTraslado = "01", //Publico
+                    FechaInicioTraslado = DateTime.Today.ToString(FormatoFecha),
+                    RucTransportista = "10432639687",
+                    RazonSocialTransportista = "TRANSPORTES S.A.C",
+                    NroMtc = "0001",
+                    NroPlacaVehiculo = "ABC123",
+                    NumeroContenedor = "ABI456",
+                    NroDocumentoConductor = "43263968",
+                    NombreConductor = "CHOFER CARLOS",
+                    NroLicenciaConductor = "43263968",
+                    DocumentoRelacionado = new DocumentoRelacionado()
+                    {
+                        NroDocumento = "F001-00000001",
+                        TipoDocumento = "01",
+                        DescripcionTipoDocumento = "Factura",
+                        RucEmisorDocumentoRelaciondo = "10432639687",
+                    },
+                    DireccionPartida = new Direccion
+                    {
+                        Ubigeo = "150101",
+                        DireccionCompleta = "AV LIMA 455",
+                        CodigoAnexo = "0000"
+                    },
+                    DireccionLlegada = new Direccion
+                    {
+                        Ubigeo = "160101",
+                        DireccionCompleta = "AV ITALIA 555",
+                        CodigoAnexo = "0000"
+                    },
+                    CodigoPuerto = string.Empty,
+                    BienesATransportar = new List<DetalleGuia>()
+                {
+                    new DetalleGuia
+                    {
+                        Correlativo = 1,
+                        CodigoItem = "0001",
+                        Descripcion = "CHIP",
+                        UnidadMedida = "NIU",
+                        Cantidad = 4,
+                        LineaReferencia = 1
+                    }
+                }
+                };
+
+                Console.WriteLine("Generando XML....");
+
+                var documentoResponse = RestHelper<GuiaRemision, DocumentoResponse>.Execute("GenerarGuiaRemision", guia);
+
+                if (!documentoResponse.Exito)
+                {
+                    throw new InvalidOperationException(documentoResponse.MensajeError);
+                }
+
+                Console.WriteLine("Firmando XML...");
+                // Firmado del Documento.
+                var firmado = new FirmadoRequest
+                {
+                    TramaXmlSinFirma = documentoResponse.TramaXmlSinFirma,
+                    CertificadoDigital = Convert.ToBase64String(File.ReadAllBytes("certificado.pfx")),
+                    PasswordCertificado = "nEu9YayAtTAyrMVcu",
+                };
+
+                var responseFirma = RestHelper<FirmadoRequest, FirmadoResponse>.Execute("Firmar", firmado);
+
+                if (!responseFirma.Exito)
+                {
+                    throw new InvalidOperationException(responseFirma.MensajeError);
+                }
+
+                File.WriteAllBytes("20610012036-09-" + guia.IdDocumento + ".xml", Convert.FromBase64String(responseFirma.TramaXmlFirmado));
+
+                var json = JsonConvert.SerializeObject(guia, Formatting.Indented, new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore
+                });
+
+                File.WriteAllText($"{guia.IdDocumento}.json", json);
+
+                Console.WriteLine("Enviando a SUNAT....");
+
+                var documentoRequest = new EnviarDocumentoRequest
+                {
+                    Ruc = guia.Remitente.NroDocumento,
+                    UsuarioSol = "DIMABER1",
+                    ClaveSol = "GaTeUeGo1",
+                    EndPointUrl = UrlSunatRest,
+                    IdDocumento = guia.IdDocumento,
+                    TipoDocumento = guia.TipoDocumento,
+                    TramaXmlFirmado = responseFirma.TramaXmlFirmado,
+                    Token = TokenRest
+                };
+
+                var enviarDocumentoResponse = RestHelper<EnviarDocumentoRequest, EnviarResumenResponse>.Execute("EnviarDocumentoRest", documentoRequest);
+
+                if (!enviarDocumentoResponse.Exito)
+                {
+                    throw new InvalidOperationException(enviarDocumentoResponse.MensajeError);
+                }
+
+                //File.WriteAllBytes("GuaiRemisionCdr.zip", Convert.FromBase64String(enviarDocumentoResponse.TramaZipCdr));
+
+                //Console.WriteLine("Respuesta de SUNAT:");
+                //Console.WriteLine(enviarDocumentoResponse.MensajeRespuesta);
+
+                Console.WriteLine("Respuesta de SUNAT Ticket:");
+                Console.WriteLine(enviarDocumentoResponse.NroTicket);
+
+                ConsultarTicketRest(enviarDocumentoResponse.NroTicket, documentoRequest.Ruc);
+                Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.ReadLine();
+            }
+
+        }
+
         private static DocumentoResponse GenerarDocumento(DocumentoElectronico documento)
         {
             Console.WriteLine("Generando XML....");
@@ -1842,7 +2285,7 @@ namespace OpenInvoicePeru.ClienteConsola
             {
                 TramaXmlSinFirma = documentoResponse.TramaXmlSinFirma,
                 CertificadoDigital = Convert.ToBase64String(File.ReadAllBytes("certificado.pfx")),
-                PasswordCertificado = string.Empty,
+                PasswordCertificado = "nEu9YayAtTAyrMVcu",
                 ValoresQr = documentoResponse.ValoresParaQr
             };
 

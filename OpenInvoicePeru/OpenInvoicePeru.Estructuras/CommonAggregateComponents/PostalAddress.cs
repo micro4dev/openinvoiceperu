@@ -16,7 +16,7 @@ namespace OpenInvoicePeru.Estructuras.CommonAggregateComponents
         public string CountrySubentity { get; set; }
 
         public string District { get; set; }
-
+        public string EstablishmentCode { get; set; }
         public Country Country { get; set; }
 
         public PostalAddress()

@@ -451,13 +451,52 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
 
             #region RequestedMonetaryTotal
 
+            //writer.WriteStartElement("cac:RequestedMonetaryTotal");
+
+            //writer.WriteStartElement("cbc:PayableAmount");
+            //writer.WriteAttributeString("currencyID", RequestedMonetaryTotal.PayableAmount.CurrencyId);
+            //writer.WriteValue(RequestedMonetaryTotal.PayableAmount.Value.ToString(Formatos.FormatoNumerico, Formato));
+            //writer.WriteEndElement();
+
+            //writer.WriteEndElement();
+
             writer.WriteStartElement("cac:RequestedMonetaryTotal");
+            {
+                writer.WriteStartElement("cbc:LineExtensionAmount");
+                {
+                    writer.WriteAttributeString("currencyID", RequestedMonetaryTotal.PayableAmount.CurrencyId);
+                    writer.WriteValue(RequestedMonetaryTotal.LineExtensionAmount.Value.ToString(Formatos.FormatoNumerico, Formato));
+                }
+                writer.WriteEndElement();
 
-            writer.WriteStartElement("cbc:PayableAmount");
-            writer.WriteAttributeString("currencyID", RequestedMonetaryTotal.PayableAmount.CurrencyId);
-            writer.WriteValue(RequestedMonetaryTotal.PayableAmount.Value.ToString(Formatos.FormatoNumerico, Formato));
-            writer.WriteEndElement();
+                writer.WriteStartElement("cbc:TaxInclusiveAmount");
+                {
+                    writer.WriteAttributeString("currencyID", RequestedMonetaryTotal.PayableAmount.CurrencyId);
+                    writer.WriteValue(RequestedMonetaryTotal.TaxInclusiveAmount.Value.ToString(Formatos.FormatoNumerico, Formato));
+                }
+                writer.WriteEndElement();
 
+                writer.WriteStartElement("cbc:AllowanceTotalAmount");
+                {
+                    writer.WriteAttributeString("currencyID", RequestedMonetaryTotal.PayableAmount.CurrencyId);
+                    writer.WriteValue(RequestedMonetaryTotal.AllowanceTotalAmount.Value.ToString(Formatos.FormatoNumerico, Formato));
+                }
+                writer.WriteEndElement();
+
+                writer.WriteStartElement("cbc:PrepaidAmount");
+                {
+                    writer.WriteAttributeString("currencyID", RequestedMonetaryTotal.PayableAmount.CurrencyId);
+                    writer.WriteValue(RequestedMonetaryTotal.PrepaidAmount.Value.ToString(Formatos.FormatoNumerico, Formato));
+                }
+                writer.WriteEndElement();
+
+                writer.WriteStartElement("cbc:PayableAmount");
+                {
+                    writer.WriteAttributeString("currencyID", RequestedMonetaryTotal.PayableAmount.CurrencyId);
+                    writer.WriteValue(RequestedMonetaryTotal.PayableAmount.Value.ToString(Formatos.FormatoNumerico, Formato));
+                }
+                writer.WriteEndElement();
+            }
             writer.WriteEndElement();
 
             #endregion RequestedMonetaryTotal

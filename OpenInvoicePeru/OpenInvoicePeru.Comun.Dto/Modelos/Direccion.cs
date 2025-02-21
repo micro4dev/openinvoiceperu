@@ -9,5 +9,6 @@ namespace OpenInvoicePeru.Comun.Dto.Modelos
 
         [JsonProperty(Required = Required.Always)]
         public string DireccionCompleta { get; set; }
+        public string CodigoAnexo { get; set; }
     }
 }
