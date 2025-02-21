@@ -25,41 +25,41 @@ namespace OpenInvoicePeru.ClienteConsola
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Title = "OpenInvoicePeru - Prueba de Envío de Documentos Electrónicos con UBL 2.1";
 
-            //CrearFacturaAlCredito();
-            //CrearFacturaConMuchosDecimales();
-            //CrearFacturaAlContado();
+            CrearFacturaAlCredito();
+            CrearFacturaConMuchosDecimales();
+            CrearFacturaAlContado();
 
-            //CrearFacturaAlContadocertificadoPropio();
-
-
-            //CrearFacturaDetraccion();
-
-            //CrearFacturaGratuita();
-            //CrearFacturaMixta();
-            //CrearBoleta();
-            //CrearFacturaAlContadoConDscto();
-            //CrearFacturaAlContadoConDsctoYRedondeo();
-
-            //CrearResumenDiario();
-            //CrearComunicacionBaja();
-            //CrearNotaCredito();
+            CrearFacturaAlContadocertificadoPropio();
 
 
-            //CrearNotaDebito();
-            //CrearNotaDebitoPorPenalidad();
-            //CrearNotaDebitoExonerado();
+            CrearFacturaDetraccion();
 
-            //CrearNotaCreditoConMontosGratuitos();
+            CrearFacturaGratuita();
+            CrearFacturaMixta();
+            CrearBoleta();
+            CrearFacturaAlContadoConDscto();
+            CrearFacturaAlContadoConDsctoYRedondeo();
 
-            //CrearNotaCreditoModificacionDeFecha();
+            CrearResumenDiario();
+            CrearComunicacionBaja();
+            CrearNotaCredito();
 
-            //CrearFacturaGratuitaConDscto();
+
+            CrearNotaDebito();
+            CrearNotaDebitoPorPenalidad();
+            CrearNotaDebitoExonerado();
+
+            CrearNotaCreditoConMontosGratuitos();
+
+            CrearNotaCreditoModificacionDeFecha();
+
+            CrearFacturaGratuitaConDscto();
 
             //CrearGuiaRemisionTransportePrivado();
             //CrearGuiaRemisionTransportePublico();
             //CrearGuiaRemisionTransferenciaEntreAlmacenes();
             //CrearGuiaRemisionTransferenciaEntreAlmacenes();
-            CrearGuiaRemisionCompra();
+            //CrearGuiaRemisionCompra();
             Console.ReadLine();
         }
 
@@ -1475,7 +1475,7 @@ namespace OpenInvoicePeru.ClienteConsola
                 {
                     TramaXmlSinFirma = documentoResponse.TramaXmlSinFirma,
                     CertificadoDigital = Convert.ToBase64String(File.ReadAllBytes("Certificado.pfx")),
-                    PasswordCertificado = string.Empty,
+                    PasswordCertificado = "nEu9YayAtTAyrMVcu",
                 };
 
                 var responseFirma = RestHelper<FirmadoRequest, FirmadoResponse>.Execute("Firmar", firmado);
@@ -1569,7 +1569,7 @@ namespace OpenInvoicePeru.ClienteConsola
                 {
                     TramaXmlSinFirma = documentoResponse.TramaXmlSinFirma,
                     CertificadoDigital = Convert.ToBase64String(File.ReadAllBytes("Certificado.pfx")),
-                    PasswordCertificado = string.Empty,
+                    PasswordCertificado = "nEu9YayAtTAyrMVcu",
                 };
 
                 var responseFirma = RestHelper<FirmadoRequest, FirmadoResponse>.Execute("Firmar", firmado);
@@ -1903,7 +1903,7 @@ namespace OpenInvoicePeru.ClienteConsola
                 {
                     TramaXmlSinFirma = documentoResponse.TramaXmlSinFirma,
                     CertificadoDigital = Convert.ToBase64String(File.ReadAllBytes("certificado.pfx")),
-                    PasswordCertificado = "TuC3lC3rTPfx1",
+                    PasswordCertificado = "nEu9YayAtTAyrMVcu",
                 };
 
                 var responseFirma = RestHelper<FirmadoRequest, FirmadoResponse>.Execute("Firmar", firmado);
