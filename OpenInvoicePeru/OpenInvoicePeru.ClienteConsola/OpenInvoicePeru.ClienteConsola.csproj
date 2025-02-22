@@ -15,9 +15,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="certificado__.pfx">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
 		<None Update="certificado.pfx">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
